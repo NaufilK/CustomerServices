@@ -1,0 +1,158 @@
+_schema-version: "3.2"
+ID: IFFCOCustomerServices
+version: 0.0.2
+modules:
+- name: customerCreate
+  type: com.sap.application.content
+  path: customerCreate
+  requires:
+  - name: sap_processautomation
+    parameters:
+      content-target: true
+      service-key:
+        config:
+          deployUsageScenario: workflow
+        name: spa-workflow-service-key
+- name: customerChange
+  type: com.sap.application.content
+  path: customerChange
+  requires:
+  - name: sap_processautomation
+    parameters:
+      content-target: true
+      service-key:
+        config:
+          deployUsageScenario: workflow
+        name: spa-workflow-service-key
+- name: customerChangeBulk
+  type: com.sap.application.content
+  path: customerChangeBulk
+  requires:
+  - name: sap_processautomation
+    parameters:
+      content-target: true
+      service-key:
+        config:
+          deployUsageScenario: workflow
+        name: spa-workflow-service-key
+- name: IFFCOCustomerServices-destination-content
+  type: com.sap.application.content
+  requires:
+  - name: IFFCOCustomerServices-destination-service
+    parameters:
+      content-target: true
+  - name: IFFCOCustomerServices_html_repo_host
+    parameters:
+      service-key:
+        name: IFFCOCustomerServices_html_repo_host-key
+  - name: uaa_IFFCOCustomerServices
+    parameters:
+      service-key:
+        name: uaa_IFFCOCustomerServices-key
+  parameters:
+    content:
+      subaccount:
+        destinations:
+        - Name: customerService_IFFCOCustomerServices_html_repo_host
+          ServiceInstanceName: IFFCOCustomerServices-html5-app-host-service
+          ServiceKeyName: IFFCOCustomerServices_html_repo_host-key
+          sap.cloud.service: customerService
+        - Authentication: OAuth2UserTokenExchange
+          Name: customerService_uaa_IFFCOCustomerServices
+          ServiceInstanceName: IFFCOCustomerServices-xsuaa-service
+          ServiceKeyName: uaa_IFFCOCustomerServices-key
+          sap.cloud.service: customerService
+        existing_destinations_policy: ignore
+  build-parameters:
+    no-source: true
+- name: IFFCOCustomerServices-app-content
+  type: com.sap.application.content
+  path: .
+  requires:
+  - name: IFFCOCustomerServices_html_repo_host
+    parameters:
+      content-target: true
+  build-parameters:
+    build-result: resources
+    requires:
+    - artifacts:
+      - customerReviewcustomerServiceUI.zip
+      name: customerReviewcustomerServiceUI
+      target-path: resources/
+    - artifacts:
+      - customerChangeUI.zip
+      name: customerChangeUI
+      target-path: resources/
+    - artifacts:
+      - customerBulkUploadUI.zip
+      name: customerBulkUploadUI
+      target-path: resources/
+- name: customerReviewcustomerServiceUI
+  type: html5
+  path: customerServiceUI
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: customerChangeUI
+  type: html5
+  path: customerChangeUI
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: customerBulkUploadUI
+  type: html5
+  path: customerBulkUploadUI
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+resources:
+- name: sap_processautomation
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: process-automation-service
+    service-plan: standard
+- name: IFFCOCustomerServices-destination-service
+  type: org.cloudfoundry.managed-service
+  parameters:
+    config:
+      HTML5Runtime_enabled: true
+      init_data:
+        subaccount:
+          destinations:
+          - Authentication: NoAuthentication
+            Name: ui5
+            ProxyType: Internet
+            Type: HTTP
+            URL: https://ui5.sap.com
+          existing_destinations_policy: update
+      version: 1.0.0
+    service: destination
+    service-name: IFFCOCustomerServices-destination-service
+    service-plan: lite
+- name: IFFCOCustomerServices_html_repo_host
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: html5-apps-repo
+    service-name: IFFCOCustomerServices-html5-app-host-service
+    service-plan: app-host
+- name: uaa_IFFCOCustomerServices
+  type: org.cloudfoundry.managed-service
+  parameters:
+    path: ./xs-security.json
+    service: xsuaa
+    service-name: IFFCOCustomerServices-xsuaa-service
+    service-plan: application
+parameters:
+  deploy_mode: html5-repo

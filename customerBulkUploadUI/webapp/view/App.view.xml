@@ -1,0 +1,129 @@
+<mvc:View controllerName="customerBulkUploadUI.controller.App" xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+xmlns:ux="sap.uxap" xmlns="sap.m">
+    <App id="app">
+        <pages>
+            <Page showHeader="false" showFooter="false">
+                <content>
+                   <ux:ObjectPageLayout enableLazyLoading="true" showFooter="false" showTitleInHeaderContent="false" upperCaseAnchorBar="false">
+                        <ux:headerContent>
+                            <HBox width="100%">
+                                <ObjectHeader title="{task>/TaskTitle}" titleActive="false">
+                                    <attributes>
+                                        <ObjectAttribute title="Created By" text="{context>/createdBy}" active="true" />
+                                        <ObjectAttribute title="Created On" text="{task>/CreatedOn}" />
+                                        <ObjectAttribute title="Due On" text="{task>/CompletionDeadLine}" />
+                                    </attributes>
+                                    <statuses>
+                                        <ObjectStatus text="{task>/Status}" state="None" />
+                                        <ObjectStatus text="{task>/Priority}" state="{task>/PriorityState}" />
+                                    </statuses>
+
+                                </ObjectHeader>
+
+                            </HBox>
+                        </ux:headerContent>
+                        <ux:sections>
+                            <ux:ObjectPageSection titleUppercase="false" title="Bulk Upload Summary">
+								<ux:subSections>
+                    				<ux:ObjectPageSubSection>
+                        				<ux:blocks>
+											<Table id="massUploadTable" items="{local>/}" autoPopinMode="true" contextualWidth="Auto" >
+													<columns>
+													<Column hAlign="Center">
+														<Text text="Row Id"/>
+													</Column>
+													<Column hAlign="Center">
+														<Text text="Registry ID"/>
+													</Column>
+													<Column hAlign="Center">
+														<Text text="Act No"/>
+													</Column>
+													<Column hAlign="Center">
+														<Text text="Act Name"/>
+													</Column>
+													<Column hAlign="Center">
+														<Text text="License Type"/>
+													</Column>
+													<Column hAlign="Center">
+														<Text text="License No"/>
+													</Column>
+													<Column hAlign="Center">
+														<Text text="Channel Type"/>
+													</Column>
+													<Column hAlign="Center">
+														<Text text="Channel Grp"/>
+													</Column>
+													<Column hAlign="Center">
+														<Text text="Channel"/>
+													</Column>
+													<Column hAlign="Center">
+														<Text text="Sub Channel"/>
+													</Column>
+													<Column hAlign="Center">
+														<Text text="Line of business"/>
+													</Column>
+													<Column hAlign="Center">
+														<Text text="BU Code"/>
+													</Column>
+													<Column hAlign="Center">
+														<Text text="Payment term code"/>
+													</Column>
+													<Column hAlign="Center">
+														<Text text="Payment term description"/>
+													</Column>
+													
+													<Column hAlign="Center">
+														<Text text="Credit limit type"/>
+													</Column>
+													<Column hAlign="Center">
+														<Text text="Credit limit Amount"/>
+													</Column>
+													<Column hAlign="Center">
+														<Text text="Currency"/>
+													</Column>
+													<Column hAlign="Center">
+														<Text text="Country"/>
+													</Column>
+
+												</columns>
+												<items>
+													<ColumnListItem vAlign="Middle">
+														<cells>
+															<Text text="{local>row_id}"/>
+															<Text text="{local>registry_id}"/>
+															<Text text="{local>account_number}"/>
+															<Text text="{local>account_name}"/>
+															<Text text="{local>license_type}"/>
+															<Text text="{local>license_number}"/>
+															<Text text="{local>channel_type}"/>
+															<Text text="{local>channel_group}"/>
+															<Text text="{local>channel}"/>
+															<Text text="{local>sub_channel}"/>
+															<Text text="{local>line_of_business}"/>
+															<Text text="{local>bu_code}"/>
+															<Text text="{local>payment_term_code}"/>
+															<Text text="{local>payment_term_description}"/>
+															<Text text="{local>credi_limit_type}"/>
+															<Text text="{local>creditlimitamount}"/>
+															<Text text="{local>creditlimitcurrency}"/>
+															<Text text="{local>country}"/>
+														
+														</cells>
+													</ColumnListItem>
+												</items>
+												
+												</Table>
+										</ux:blocks>
+								</ux:ObjectPageSubSection>
+
+								</ux:subSections>
+                       		
+                            
+                            </ux:ObjectPageSection>
+                        </ux:sections>
+                    </ux:ObjectPageLayout>
+                </content>
+            </Page>
+        </pages>
+    </App>
+</mvc:View>

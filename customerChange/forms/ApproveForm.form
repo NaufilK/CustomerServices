@@ -1,0 +1,21 @@
+{
+    "id": "approveform",
+    "schemaVersion": "1.1.0",
+    "name": "ApproveForm",
+    "revision": "1.0",
+    "type": "task",
+    "readOnly": false,
+    "content": [],
+    "decisions": [
+        {
+            "id": "aprove",
+            "text": "Aprove",
+            "decisionType": "positive"
+        },
+        {
+            "id": "reject",
+            "text": "Reject",
+            "decisionType": "negative"
+        }
+    ]
+}

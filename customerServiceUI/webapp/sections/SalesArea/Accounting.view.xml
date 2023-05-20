@@ -1,0 +1,11 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:forms="sap.ui.layout.form" xmlns="sap.m" >
+	<forms:SimpleForm editable="false" layout="ColumnLayout">
+		<Label text="Settlement Group" visible="{=${fieldMappingModels>/SettlementGroupVisible} === true ? true : false}"
+ required="{=${fieldMappingModels>/SettlementGroupMandatory} === true ? true : false}" />
+		<Input  value="{Customers>/zsettlement_group}" maxLength="10" visible="{=${fieldMappingModels>/SettlementGroupVisible} === true ? true : false}" enabled="{=${Customers>/zrequest_status} !== 'In Progress' ? true : false}"/>
+		<Label text = "Account Assignment Group" visible="{=${fieldMappingModels>/AccountAssignmentGroupVisible} === true ? true : false}"
+ required="{=${fieldMappingModels>/AccountAssignmentGroupMandatory} === true ? true : false}"/>
+		<Input  value="{Customers>/zaccount_assignment_group}" maxLength="2" visible="{=${fieldMappingModels>/AccountAssignmentGroupVisible} === true ? true : false}" enabled="{=${Customers>/zrequest_status} !== 'In Progress' ? true : false}"/>
+		
+	</forms:SimpleForm>
+</mvc:View>

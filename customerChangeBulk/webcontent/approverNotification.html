@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Approver Notification E-Mail</title>
+    <style>
+        h3 {
+            font-family: serif;
+        }
+
+        p,
+        dl,
+        dd,
+        dt {
+            font-family: sans-serif;
+        }
+
+        dt {
+            text-indent: 5em;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>
+        Approve creation of a new customer (${context.customerName})
+    </h3>
+    <p>
+        Dear ${context.currentApproverName},
+    </p>
+    <p>${context.notificationText}</p>
+    <p>Business Unit: ${context.businessUnit}</p>
+    <p>Regards,</p>
+    <p>CLAP Support</p>
+</body>
+
+</html>

@@ -1,0 +1,125 @@
+	<mvc:View controllerName="customerReview.customerServiceUI.sections.CustomerBackground.DetailsOfExpectedBusinessController" xmlns:mvc="sap.ui.core.mvc" xmlns:forms="sap.ui.layout.form" xmlns="sap.m" xmlns:core="sap.ui.core">
+	<forms:SimpleForm editable="false" layout="ColumnLayout">
+	 <core:Title text="Annual Sales Revenue"/>
+		<Label text="Volume" visible="{=${fieldMappingModels>/ActualVolumeVisible} === true ? true : false}"
+ required="{=${fieldMappingModels>/ActualVolumeMandatory} === true ? true : false}"/>
+		<Input enabled="{=${Customers>/zrequest_status} !== 'In Progress' ? true : false}" value="{Customers>/zannual_actual_volume}" maxLength="20" visible="{=${fieldMappingModels>/ActualVolumeVisible} === true ? true : false}"/>
+
+		<Label text="Variance in Amount" visible="{=${fieldMappingModels>/VarianceinAmountVisible} === true ? true : false}"
+ required="{=${fieldMappingModels>/VarianceinAmountMandatory} === true ? true : false}"/>
+		<Input enabled="{=${Customers>/zrequest_status} !== 'In Progress' ? true : false}" value="{Customers>/zannual_variance_in_amount}" liveChange="handleSetMaxLength" maxLength="8" type="Number" visible="{=${fieldMappingModels>/VarianceinAmountVisible} === true ? true : false}"/>
+		
+		<Label text="Actual Volume" visible="{=${fieldMappingModels>/ActualVolumeVisible} === true ? true : false}"
+ required="{=${fieldMappingModels>/ActualVolumeMandatory} === true ? true : false}"/>
+		<Input enabled="{=${Customers>/zrequest_status} !== 'In Progress' ? true : false}" value="{Customers>/zannual_actual_volume}" maxLength="20" visible="{=${fieldMappingModels>/ActualVolumeVisible} === true ? true : false}"/>
+        
+		<Label text="Value" visible="{=${fieldMappingModels>/ValueVisible} === true ? true : false}"
+ required="{=${fieldMappingModels>/ValueMandatory} === true ? true : false}"/>
+		<Input enabled="{=${Customers>/zrequest_status} !== 'In Progress' ? true : false}" value="{Customers>/zannual_propsed_value}" liveChange="handleSetMaxLength" maxLength="8" type="Number" visible="{=${fieldMappingModels>/ValueVisible} === true ? true : false}"/>
+        
+		<Label text="Variance in Amount" visible="{=${fieldMappingModels>/VarianceinAmountVisible} === true ? true : false}"
+ required="{=${fieldMappingModels>/VarianceinAmountMandatory} === true ? true : false}"/>
+		<Input enabled="{=${Customers>/zrequest_status} !== 'In Progress' ? true : false}" value="{Customers>/zannual_variance_in_volume}" visible="{=${fieldMappingModels>/VarianceinAmountVisible} === true ? true : false}"/>
+        
+		<!-- <Label text="Currency" visible="{=${fieldMappingModels>/ActualTurnoverVisible} === true ? true : false}"
+ required="{=${fieldMappingModels>/ActualTurnoverMandatory} === true ? true : false}"/>
+		<Input value="{Customers>/zannual_actual_turnover}" visible="{=${fieldMappingModels>/ActualTurnoverVisible} === true ? true : false}"/> -->
+
+		<Label text="Actual Turnover" visible="{=${fieldMappingModels>/ActualTurnoverVisible} === true ? true : false}"
+ required="{=${fieldMappingModels>/ActualTurnoverMandatory} === true ? true : false}"/>
+		<Input enabled="{=${Customers>/zrequest_status} !== 'In Progress' ? true : false}" value="{Customers>/zannual_actual_turnover}" liveChange="handleSetMaxLength" maxLength="8" type="Number" visible="{=${fieldMappingModels>/ActualTurnoverVisible} === true ? true : false}"/>
+
+	<core:Title text="Monthly Expected Highest Sales"/>
+	<Label text="Monthly Physical Buy Volume" visible="{=${fieldMappingModels>/MonthlyPhysicalBuyVolumeVisible} === true ? true : false}"
+ required="{=${fieldMappingModels>/MonthlyPhysicalBuyVolumeMandatory} === true ? true : false}"/>
+		<Input enabled="{=${Customers>/zrequest_status} !== 'In Progress' ? true : false}" value="{Customers>/zmonthly_physical_buy_volume}" maxLength="20" visible="{=${fieldMappingModels>/MonthlyPhysicalBuyVolumeVisible} === true ? true : false}"/>
+
+		<Label text="Monthly Physical Sell Volume" visible="{=${fieldMappingModels>/MonthlyPhysicalSellVolumeVisible} === true ? true : false}"
+ required="{=${fieldMappingModels>/MonthlyPhysicalSellVolumeMandatory} === true ? true : false}"/>
+		<Input enabled="{=${Customers>/zrequest_status} !== 'In Progress' ? true : false}" value="{Customers>/zmonthly_physical_sell_volume}" maxLength="20" visible="{=${fieldMappingModels>/MonthlyPhysicalSellVolumeVisible} === true ? true : false}"/>
+
+		<Label text="Monthly Paper Volume" visible="{=${fieldMappingModels>/MonthlyPaperVolumeVisible} === true ? true : false}"
+ required="{=${fieldMappingModels>/MonthlyPaperVolumeMandatory} === true ? true : false}"/>
+		<Input enabled="{=${Customers>/zrequest_status} !== 'In Progress' ? true : false}" value="{Customers>/zmonthly_paper_volume}" maxLength="20" visible="{=${fieldMappingModels>/MonthlyPaperVolumeVisible} === true ? true : false}"/>
+
+		<Label text="Stoploss/ MT if any" visible="{=${fieldMappingModels>/Stoploss-MTifanyVisible} === true ? true : false}"
+ required="{=${fieldMappingModels>/Stoploss-MTifanyMandatory} === true ? true : false}"/>
+		<Input enabled="{=${Customers>/zrequest_status} !== 'In Progress' ? true : false}" value="{Customers>/zstoploss_mt_if_any}" maxLength="20" visible="{=${fieldMappingModels>/Stoploss-MTifanyVisible} === true ? true : false}"/>
+
+		<core:Title text="Gross Contribution"/>
+
+		<Label text="Gross Average GC% or avg gc /MT %" visible="{=${fieldMappingModels>/GrossAverageGCoravggc-MTVisible} === true ? true : false}"
+ required="{=${fieldMappingModels>/GrossAverageGCoravggc-MTMandatory} === true ? true : false}"/>
+		<Input enabled="{=${Customers>/zrequest_status} !== 'In Progress' ? true : false}" value="{Customers>/zgross_average_gc_or_av_gc_mt}" maxLength="20" visible="{=${fieldMappingModels>/GrossAverageGCoravggc-MTVisible} === true ? true : false}"/>
+
+		<Label text="Avg GC/MT or GC%" visible="{=${fieldMappingModels>/AvgGC-MTorGCVisible} === true ? true : false}"
+ required="{=${fieldMappingModels>/AvgGC-MTorGCMandatory} === true ? true : false}"/>
+		<Input enabled="{=${Customers>/zrequest_status} !== 'In Progress' ? true : false}" value="{Customers>/zavg_gc_mt_or_gc}" maxLength="20" visible="{=${fieldMappingModels>/AvgGC-MTorGCVisible} === true ? true : false}"/>
+		
+		<Label text="Inco Term" visible="{=${fieldMappingModels>/IncoTermVisible} === true ? true : false}"
+ required="{=${fieldMappingModels>/IncoTermMandatory} === true ? true : false}"/>
+		<MultiInput enabled="{=${Customers>/zrequest_status} !== 'In Progress' ? true : false}" value="{Customers>/zinco_term}" maxLength="3" valueHelpRequest="handleValueHelpForIncoterms"
+	 valueHelpOnly="true" visible="{=${fieldMappingModels>/IncoTermVisible} === true ? true : false}"/>
+		<!-- <Input value="{Customers>/zinco_term}" maxLength="3" visible="{=${fieldMappingModels>/IncoTermVisible} === true ? true : false}"/> -->
+
+
+	
+        
+		<!-- <core:Title text="Monthly Expected Highest Sales"/>
+		<Label text="Actual Sales Volume" visible="{=${fieldMappingModels>/ActualSalesVolumeVisible} === true ? true : false}"
+ required="{=${fieldMappingModels>/ActualSalesVolumeMandatory} === true ? true : false}"/>
+		<Input value="{Customers>/zmonthly_actual_sales_volume}" visible="{=${fieldMappingModels>/ActualSalesVolumeVisible} === true ? true : false}"/>
+		<Label text="Variance in Amount" visible="{=${fieldMappingModels>/VarianceinAmountVisible} === true ? true : false}"
+ required="{=${fieldMappingModels>/VarianceinAmountMandatory} === true ? true : false}"/>
+		<Input value="{Customers>/zmonthly_variance_in_amount1}" visible="{=${fieldMappingModels>/VarianceinAmountVisible} === true ? true : false}"/>
+		<Label text="Actual Volume" visible="{=${fieldMappingModels>/ActualVolumeVisible} === true ? true : false}"
+ required="{=${fieldMappingModels>/ActualVolumeMandatory} === true ? true : false}"/>
+		<Input value="{Customers>/zmonthly_actual_volume}" maxLength="20" visible="{=${fieldMappingModels>/ActualVolumeVisible} === true ? true : false}"/>
+        <Label text="Actual Sales Value" visible="{=${fieldMappingModels>/ActualSalesValueVisible} === true ? true : false}"
+ required="{=${fieldMappingModels>/ActualSalesValueMandatory} === true ? true : false}"/>
+		<Input value="{Customers>/zmonthly_actual_sales_value}" maxLength="20" visible="{=${fieldMappingModels>/ActualSalesValueVisible} === true ? true : false}"/>
+        <Label text="Variance in Amount" visible="{=${fieldMappingModels>/VarianceinAmountVisible} === true ? true : false}"
+ required="{=${fieldMappingModels>/VarianceinAmountMandatory} === true ? true : false}"/>
+		<Input value="{Customers>/zmonthly_variance_in_amount2}" visible="{=${fieldMappingModels>/VarianceinAmountVisible} === true ? true : false}"/>
+        <Label text="Actual Turnover" visible="{=${fieldMappingModels>/ActualTurnoverVisible} === true ? true : false}"
+ required="{=${fieldMappingModels>/ActualTurnoverMandatory} === true ? true : false}"/>
+		<Input value="{Customers>/zmonthly_actual_turnover}" visible="{=${fieldMappingModels>/ActualTurnoverVisible} === true ? true : false}"/>
+        
+		<core:Title text="Gross Contribution"/>
+		<Label text="Proposed Avg. GC/MT or GC %" visible="{=${fieldMappingModels>/ProposedAvg.GC-MTorGCVisible} === true ? true : false}"
+ required="{=${fieldMappingModels>/ProposedAvg.GC-MTorGCMandatory} === true ? true : false}"/>
+		<Input value="{Customers>/zgc_proposed_avg_gc_mt_or_gc}" maxLength="20" visible="{=${fieldMappingModels>/ProposedAvg.GC-MTorGCVisible} === true ? true : false}"/>
+		<Label text="Variance in Amount" visible="{=${fieldMappingModels>/VarianceinAmountVisible} === true ? true : false}"
+ required="{=${fieldMappingModels>/VarianceinAmountMandatory} === true ? true : false}"/>
+		<Input value="{Customers>/zgc_variance_in_amount}" visible="{=${fieldMappingModels>/VarianceinAmountVisible} === true ? true : false}"/>
+		<Label text="Actual GC Earned" visible="{=${fieldMappingModels>/ActualGCEarnedVisible} === true ? true : false}"
+ required="{=${fieldMappingModels>/ActualGCEarnedMandatory} === true ? true : false}"/>
+		<Input value="{Customers>/zgc_actual_gc_earned}" maxLength="20" visible="{=${fieldMappingModels>/ActualGCEarnedVisible} === true ? true : false}"/>
+        <Label text="Proposed Inco Term" visible="{=${fieldMappingModels>/ProposedIncoTermVisible} === true ? true : false}"
+ required="{=${fieldMappingModels>/ProposedIncoTermMandatory} === true ? true : false}"/>
+		<Input value="{Customers>/zgc_proposed_inco_term}" maxLength="20" visible="{=${fieldMappingModels>/ProposedIncoTermVisible} === true ? true : false}"/> -->
+        
+		<!-- <core:Title text="Other Details"/>
+		<Label text="Customer Debtors Balance at Last Month End" visible="{=${fieldMappingModels>/CustomerDebtorsBalanceatLastMonthEndVisible} === true ? true : false}"
+ required="{=${fieldMappingModels>/CustomerDebtorsBalanceatLastMonthEndMandatory} === true ? true : false}"/>
+		<Input value="{Customers>/zod_cust_debtors_bal_lastmonth}" maxLength="20" visible="{=${fieldMappingModels>/CustomerDebtorsBalanceatLastMonthEndVisible} === true ? true : false}"/>
+		<Label text="Overdue if any" visible="{=${fieldMappingModels>/OverdueifanyVisible} === true ? true : false}"
+ required="{=${fieldMappingModels>/OverdueifanyMandatory} === true ? true : false}"/>
+		<Input value="{Customers>/zoverdue_if_any}" maxLength="20" visible="{=${fieldMappingModels>/Prov.ForDoubtfulDebtVisible} === true ? true : false}"/>
+		<Label text="Prov. For Doubtful Debt" visible="{=${fieldMappingModels>/364} === true ? true : false}"
+ required="{=${fieldMappingModels>/Prov.ForDoubtfulDebtMandatory} === true ? true : false}"/>
+		<Input value="{Customers>/zod_prov_for_doubtful_debt}" maxLength="20" visible="{=${fieldMappingModels>/Prov.ForDoubtfulDebtVisible} === true ? true : false}"/>
+        <Label text="Cheque Bounce" visible="{=${fieldMappingModels>/ChequeBounceVisible} === true ? true : false}"
+ required="{=${fieldMappingModels>/ChequeBounceMandatory} === true ? true : false}"/>
+		<Input value="{Customers>/zod_cheque_bounce}" maxLength="20" visible="{=${fieldMappingModels>/ChequeBounceVisible} === true ? true : false}"/>
+        <Label text="Cases of Delayed Payments" visible="{=${fieldMappingModels>/CasesofDelayedPaymentsVisible} === true ? true : false}"
+ required="{=${fieldMappingModels>/CasesofDelayedPaymentsMandatory} === true ? true : false}"/>
+		<Input value="{Customers>/zod_cases_of_delayed_payts}" maxLength="20" visible="{=${fieldMappingModels>/CasesofDelayedPaymentsVisible} === true ? true : false}"/>
+		<Label text="Max Delay" visible="{=${fieldMappingModels>/MaxDelayVisible} === true ? true : false}"
+ required="{=${fieldMappingModels>/MaxDelayMandatory} === true ? true : false}"/>
+		<Input value="{Customers>/zod_max_delay}" maxLength="20" visible="{=${fieldMappingModels>/MaxDelayVisible} === true ? true : false}"/>
+		<Label text="Attachment of Statement of Accounts" visible="{=${fieldMappingModels>/AttachmentofStatementofAccountsVisible} === true ? true : false}"
+ required="{=${fieldMappingModels>/AttachmentofStatementofAccountsMandatory} === true ? true : false}"/>
+		<Input value="{Customers>/zod_attach_of_statement}" maxLength="20" visible="{=${fieldMappingModels>/AttachmentofStatementofAccountsVisible} === true ? true : false}"/> -->
+	</forms:SimpleForm>
+</mvc:View>
