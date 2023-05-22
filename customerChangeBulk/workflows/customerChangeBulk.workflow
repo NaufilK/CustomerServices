@@ -4,6 +4,17 @@
 			"classDefinition": "com.sap.bpm.wfs.Model",
 			"id": "iffco.customerchangebulk",
 			"subject": "customerChangeBulk",
+			"customAttributes": [{
+				"id": "currentApproverName",
+				"label": "currentApproverName",
+				"type": "string",
+				"value": "${context.currentApproverName}"
+			}, {
+				"id": "currentApprover",
+				"label": "currentApprover",
+				"type": "string",
+				"value": "${context.currentApprover}"
+			}],
 			"name": "customerChangeBulk",
 			"documentation": "Main customer change process",
 			"lastIds": "62d7f4ed-4063-4c44-af8b-39050bd44926",

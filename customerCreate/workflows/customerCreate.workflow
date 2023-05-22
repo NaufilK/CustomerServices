@@ -5,6 +5,11 @@
 			"id": "iffco.customercreate",
 			"subject": "customerCreate",
 			"customAttributes": [{
+				"id": "currentApproverName",
+				"label": "currentApproverName",
+				"type": "string",
+				"value": "${context.currentApproverName}"
+			}, {
 				"id": "currentApprover",
 				"label": "currentApprover",
 				"type": "string",
