@@ -5,6 +5,11 @@
 			"id": "iffco.customerchangebulk",
 			"subject": "customerChangeBulk",
 			"customAttributes": [{
+				"id": "bulkDocumentId",
+				"label": "bulkDocumentId",
+				"type": "string",
+				"value": "${context.bulkDocumentId}"
+			}, {
 				"id": "currentApproverName",
 				"label": "currentApproverName",
 				"type": "string",

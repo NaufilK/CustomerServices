@@ -5,6 +5,11 @@
 			"id": "iffco.customerchange",
 			"subject": "customerChange",
 			"customAttributes": [{
+				"id": "customerId",
+				"label": "customerId",
+				"type": "string",
+				"value": "${context.customerId}"
+			}, {
 				"id": "currentApproverName",
 				"label": "currentApproverName",
 				"type": "string",
