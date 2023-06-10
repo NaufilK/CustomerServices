@@ -8,7 +8,7 @@
         <CheckBox enabled="{=${Customers>/zrequest_status} !== 'In Progress' ? true : false}" id="spclAtnt" selected="{=${Customers>/zspecialattention} === 'Y' ? true : false}" />
 
         <Label text="Block Reason" />
-        <MultiInput enabled="{=${Customers>/zrequest_status} !== 'In Progress' ? true : false}" value="{Customers>/zblock_reason}" valueHelpRequest="handleValueHelpForBlockReason"
+        <MultiInput showClearIcon="true" enabled="{=${Customers>/zrequest_status} !== 'In Progress' ? true : false}" value="{Customers>/zblock_reason}" valueHelpRequest="handleValueHelpForBlockReason"
 		valueHelpOnly="true" />
 
         <Label text="Resubmission On" />

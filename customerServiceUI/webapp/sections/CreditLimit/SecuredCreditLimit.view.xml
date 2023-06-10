@@ -11,11 +11,11 @@
         <core:Title text="Irrevocable LC from Approved Bank" />
         <Label text="LC Issuance Bank Country" visible="{=${fieldMappingModels>/IrrevocableLCfromApprovedBankLCIssuanceBankCountryVisible} === true ? true : false}"
          required="{=${fieldMappingModels>/IrrevocableLCfromApprovedBankLCIssuanceBankCountryMandatory} === true ? true : false}" />
-        <MultiInput enabled="{=${Customers>/zrequest_status} !== 'In Progress' ? true : false}" value="{Customers>/zlc_issuance_bankcountry}" maxLength="20" valueHelpRequest="handleValueHelpForBankCountry"
+        <MultiInput showClearIcon="true" enabled="{=${Customers>/zrequest_status} !== 'In Progress' ? true : false}" value="{Customers>/zlc_issuance_bankcountry}" maxLength="20" valueHelpRequest="handleValueHelpForBankCountry"
 		valueHelpOnly="true" visible="{=${fieldMappingModels>/IrrevocableLCfromApprovedBankLCIssuanceBankCountryVisible} === true ? true : false}"/>
         <Label text="LC Issuance Bank" visible="{=${fieldMappingModels>/IrrevocableLCfromApprovedBankLCIssuanceBankVisible} === true ? true : false}" 
         required="{=${fieldMappingModels>/IrrevocableLCfromApprovedBankLCIssuanceBankMandatory} === true ? true : false}" />
-        <MultiInput enabled="{=${Customers>/zrequest_status} !== 'In Progress' ? true : false}" value="{Customers>/zlc_issuance_bank}" valueHelpRequest="handleValueHelpForBank"
+        <MultiInput showClearIcon="true" enabled="{=${Customers>/zrequest_status} !== 'In Progress' ? true : false}" value="{Customers>/zlc_issuance_bank}" valueHelpRequest="handleValueHelpForBank"
 		valueHelpOnly="true" visible="{=${fieldMappingModels>/IrrevocableLCfromApprovedBankLCIssuanceBankVisible} === true ? true : false}"/>
         <Label text="Amount (AED)" visible="{=${fieldMappingModels>/IrrevocableLCfromApprovedBankAmountAEDVisible} === true ? true : false}"
          required="{=${fieldMappingModels>/IrrevocableLCfromApprovedBankAmountAEDMandatory} === true ? true : false}" />
@@ -24,13 +24,13 @@
         <core:Title text="Irrevocable Confirmed LC" />
         <Label text="LC Confirming Bank Country" visible="{=${fieldMappingModels>/IrrevocableConfirmedLCLCConfirmingBankCountryVisible} === true ? true : false}"
          required="{=${fieldMappingModels>/IrrevocableConfirmedLCLCConfirmingBankCountryMandatory} === true ? true : false}" />
-         <MultiInput enabled="{=${Customers>/zrequest_status} !== 'In Progress' ? true : false}" value="{Customers>/zlc_confirming_bank_country}" maxLength="20" valueHelpRequest="handleValueHelpForBankCountry1"
+         <MultiInput showClearIcon="true" enabled="{=${Customers>/zrequest_status} !== 'In Progress' ? true : false}" value="{Customers>/zlc_confirming_bank_country}" maxLength="20" valueHelpRequest="handleValueHelpForBankCountry1"
 		valueHelpOnly="true" visible="{=${fieldMappingModels>/IrrevocableConfirmedLCLCConfirmingBankCountryVisible} === true ? true : false}"/>
 
         
         <Label text="LC Confirming Bank" visible="{=${fieldMappingModels>/IrrevocableConfirmedLCLCConfirmingBankVisible} === true ? true : false}"
          required="{=${fieldMappingModels>/IrrevocableConfirmedLCLCConfirmingBankMandatory} === true ? true : false}" />
-        <MultiInput enabled="{=${Customers>/zrequest_status} !== 'In Progress' ? true : false}" value="{Customers>/zlc_confirming_bank}" maxLength="20" valueHelpRequest="handleValueHelpForBank1"
+        <MultiInput showClearIcon="true" enabled="{=${Customers>/zrequest_status} !== 'In Progress' ? true : false}" value="{Customers>/zlc_confirming_bank}" maxLength="20" valueHelpRequest="handleValueHelpForBank1"
 		valueHelpOnly="true" visible="{=${fieldMappingModels>/IrrevocableLCfromApprovedBankLCIssuanceBankVisible} === true ? true : false}"/>
        
 

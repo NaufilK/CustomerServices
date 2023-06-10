@@ -3,7 +3,7 @@
 <forms:SimpleForm editable="false" layout="ColumnLayout">
 
     <Label text="Information Cat" />
-		<MultiInput enabled="{=${Customers>/zrequest_status} !== 'In Progress' ? true : false}" id="infoCat" value="{Customers>/zinfo_category}" valueHelpRequest="handleValueHelpForInfoCat"
+		<MultiInput showClearIcon="true" enabled="{=${Customers>/zrequest_status} !== 'In Progress' ? true : false}" id="infoCat" value="{Customers>/zinfo_category}" valueHelpRequest="handleValueHelpForInfoCat"
 		valueHelpOnly="true" />
 	
 	</forms:SimpleForm>

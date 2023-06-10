@@ -12,12 +12,12 @@
 
         <Label text="Business Unit" visible="{=${fieldMappingModels>/BusinessUnitVisible} === true ? true : false}"
  required="{=${fieldMappingModels>/BusinessUnitMandatory} === true ? true : false}"/>
- <MultiInput value="{Customers>/zbusiness_unit_name}" valueHelpRequest="handleValueHelpForBusinessUnit"
+ <MultiInput showClearIcon="true" value="{Customers>/zbusiness_unit_name}" valueHelpRequest="handleValueHelpForBusinessUnit"
 		valueHelpOnly="true" enabled="{=${Customers>/zrequest_no} ? false : true}" visible="{=${fieldMappingModels>/BusinessUnitVisible} === true ? true : false}"/>
 
         <Label text="Vertical" visible="{=${fieldMappingModels>/VerticalVisible} === true ? true : false}"
  required="{=${fieldMappingModels>/VerticalMandatory} === true ? true : false}"/>
-        <MultiInput value="{Customers>/zvertical}" valueHelpRequest="handleValueHelpForVertical"
+        <MultiInput showClearIcon="true" value="{Customers>/zvertical}" valueHelpRequest="handleValueHelpForVertical"
 		valueHelpOnly="true" enabled="{=${Customers>/zrequest_no} ? false : true}" visible="{=${fieldMappingModels>/VerticalVisible} === true ? true : false}"/>
 
         <Label text="Priority" visible="{=${fieldMappingModels>/PriorityVisible} === true ? true : false}"

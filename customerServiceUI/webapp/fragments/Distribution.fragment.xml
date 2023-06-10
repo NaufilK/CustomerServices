@@ -3,7 +3,7 @@
 	xmlns:c="sap.ui.core"
 >
 <SelectDialog contentHeight="60%" showClearButton="true" title="Select Distribution Organization" class="sapUiPopupWithPadding"
-		items="{path:'S4D>/DistriChannelSet'}" search="handleValueHelpDistribSearch" confirm="handleValueHelpDistributionConfirm" cancel="handleValueHelpDistributionClose" multiSelect="false">
-		<StandardListItem title="{S4D>Dc}" description="{S4D>Dctext}"/>
+		items="{path:'DistChannelModel>/'}" search="handleValueHelpDistribSearch" confirm="handleValueHelpDistributionConfirm" cancel="handleValueHelpDistributionClose" multiSelect="false">
+		<StandardListItem title="{DistChannelModel>Distributionchannel}" description="{DistChannelModel>Distributionchanneltext}"/>
 	</SelectDialog>
 </c:FragmentDefinition>

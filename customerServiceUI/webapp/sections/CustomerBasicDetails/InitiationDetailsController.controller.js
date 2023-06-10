@@ -12,6 +12,11 @@ sap.ui.define([
          * @override
          */
         onInit: function () {
+            
+        },
+        onAfterRendering: function(oEvent){
+            var that = this;
+            that.handleVerticalModel();
             if (!this.businessUnit) {
                 this.businessUnit = new sap.ui.xmlfragment("customerReview.customerServiceUI.fragments.BusinessUnit", this);
                 this.getView().addDependent(this.businessUnit);
@@ -19,8 +24,29 @@ sap.ui.define([
             if (!this.vertical) {
                 this.vertical = new sap.ui.xmlfragment("customerReview.customerServiceUI.fragments.Vertical", this);
                 this.getView().addDependent(this.vertical);
+                this.vertical.setModel(this.getOwnerComponent().getModel("VerticalModel"));
             }
-            
+        },
+
+        //Creating a model for the get service of Vertical field in order to remove duplicate records.
+        handleVerticalModel: function(evt){
+            var that = this;
+            var oModel = that.getOwnerComponent().getModel();
+            oModel.read("/ZDD_BU_VER_VH", {
+                success: function (oData, oResponse) {
+                    var aCombinedData = [];
+                    var aUniqueCustomers = [];
+                    oData.results.forEach(function (obj) {
+                        if (!aUniqueCustomers.includes(obj.vertical)){
+                            aUniqueCustomers.push(obj.vertical);
+                            aCombinedData.push(obj);
+                        }
+                    });
+                    that.getOwnerComponent().setModel(new sap.ui.model.json.JSONModel(aCombinedData), "VerticalModel");
+                    that.getOwnerComponent().getModel("VerticalModel").updateBindings(true);
+                }.bind(that),
+                error: function (oError) { }
+            });
         },
         handleRuleEngineConfiguration: function (oEvent) {
             console.log("ty");
@@ -70,7 +96,7 @@ sap.ui.define([
             var oModel = this.getView().getModel("RuleEngine");
             // this.getView().setBusy(true);
             oModel.read("/ZDD_RULE_UPDATE_FIELDS", {
-                filters: [new sap.ui.model.Filter("rule_id", "EQ", ruleid)],
+                filters: [new sap.ui.model.Filter("rule_id", "Contains", ruleid)],
                 urlParameters: {
                     "$top": 10000
                 },
@@ -102,7 +128,7 @@ sap.ui.define([
                         }
                     })
                     console.log(flatObj);
-                    // this.getView().setModel(new sap.ui.model.json.JSONModel({}), "fieldMappingModels");
+                    this.getView().setModel(new sap.ui.model.json.JSONModel({}), "fieldMappingModels");
                     this.getView().getModel("fieldMappingModels").oData = flatObj;
                     this.getView().getModel("fieldMappingModels").updateBindings(true);
                     console.log(this.getView().getModel("fieldMappingModels").oData);
@@ -128,25 +154,40 @@ sap.ui.define([
             this.getView().getModel("appView").setProperty("/custType", evt.getSource().getText());
             this.getView().getModel("appView").updateBindings(true);
         },
+
+        //Value Help for Business Unit
         handleValueHelpForBusinessUnit:function (evt) {
                 this.businessUnitField = evt.getSource();
+                this.bValue = evt.getSource().getValue();
                 this.businessUnit.getBinding("items").filter([]);
                 this.businessUnit.open();
         },
+        handleValueHelpBusinessunitConfirm: function (evt) {
+            this.businessUntVal = evt.getParameter("selectedItems")[0].getProperty("title");
+            this.businessUnitField.setValue(this.businessUntVal);
+        },
+        handleValueHelpBusinessunitClose:function () {
+            this.businessUnit._dialog.close();
+        },
+        handleValueHelpBusinessUnitSearch:function (evt) {
+                var sValue = evt.getParameter("value");
+                if (sValue.length > 0) {   
+                    var oFilter2 = new sap.ui.model.Filter("businessunit", 'Contains', sValue);
+                    this.businessUnit.getBinding("items").filter([oFilter2]);
+                }else {
+                    this.businessUnit.getBinding("items").filter([]);
+                }
+        },
+
+        //Value Help for vertical
         handleValueHelpForVertical:function (evt) {
-            if(this.businessUntVal !== undefined ){
-            this.verticalField = evt.getSource();
-            this.vertical.getBinding("items").filter([new sap.ui.model.Filter("Businessunit", "EQ", this.businessUntVal)]);
+            if(this.businessUntVal){
+                this.verticalField = evt.getSource();
+                this.vertical.getBinding("items").filter([new sap.ui.model.Filter("Businessunit", "EQ", this.businessUntVal)]);
                 this.vertical.open();
             }else{
                 MessageBox.error("Please select Business Unit Field");
             }
-        },
-
-        handleValueHelpBusinessunitConfirm: function (evt) {
-            this.businessUntVal = evt.getParameter("selectedItems")[0].getProperty("title");
-            this.businessUnitField.setValue(this.businessUntVal);
-            
         },
         handleValueHelpVerticalConfirm: function (evt) {
             this.verticalVal = evt.getParameter("selectedItems")[0].getProperty("title");
@@ -154,28 +195,18 @@ sap.ui.define([
             this.getView().getModel("appView").setProperty("/vertical", this.verticalVal);
             this.handleRuleEngineConfiguration();
         },
-
-        handleValueHelpBusinessunitClose:function () {
-            this.businessUnit._dialog.close();
+        handleValueHelpVerticalSearch :function (evt) {
+            var sValue = evt.getParameter("value");
+            if (sValue.length > 0) {   
+               var oFilter2 = new sap.ui.model.Filter("vertical", 'Contains', sValue);
+                this.vertical.getBinding("items").filter([oFilter2]);
+            }else {
+                this.vertical.getBinding("items").filter([new sap.ui.model.Filter("Businessunit", "EQ", this.businessUntVal)]);
+            }
         },
-        handleValueHelpBusinessUnitSearch:function (evt) {
-                var sValue = evt.getParameter("value");
-                if (sValue.length > 0) {   
-                    var oFilter2 = new sap.ui.model.Filter("Businessunit", 'EQ', sValue);
-                    this.businessUnit.getBinding("items").filter([oFilter2]);
-        }else {
-            this.businessUnit.getBinding("items").filter([]);
+        handleValueHelpVerticalClose: function(){
+            this.vertical.close();
         }
-    },
-    handleValueHelpVerticalSearch :function (evt) {
-        var sValue = evt.getParameter("value");
-                if (sValue.length > 0) {   
-                    var oFilter2 = new sap.ui.model.Filter("vertical", 'EQ', sValue);
-                    this.vertical.getBinding("items").filter([oFilter2]);
-        }else {
-            this.vertical.getBinding("items").filter([]);
-        }
-    }
 
 	});
 });

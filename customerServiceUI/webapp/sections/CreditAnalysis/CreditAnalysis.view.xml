@@ -80,7 +80,7 @@
         
         <Label text="Country" visible="{=${fieldMappingModels>/CountryVisible} === true ? true : false}"
  required="{=${fieldMappingModels>/CountryMandatory} === true ? true : false}"/>
-        <MultiInput enabled="{=${Customers>/zrequest_status} !== 'In Progress' ? true : false}" value="{Customers>/zcountry2}" maxLength="20" valueHelpRequest="handleValueHelpForCountryRating"
+        <MultiInput showClearIcon="true" enabled="{=${Customers>/zrequest_status} !== 'In Progress' ? true : false}" value="{Customers>/zcountry2}" maxLength="20" valueHelpRequest="handleValueHelpForCountryRating"
 		valueHelpOnly="true" visible="{=${fieldMappingModels>/CountryVisible} === true ? true : false}"/>
         
         <Label text="Country Rating" visible="{=${fieldMappingModels>/CountryRatingVisible} === true ? true : false}"

@@ -72,24 +72,7 @@ sap.ui.define([
         }
         
         },
-        // handleUpdateOrder: function (evt) {
-		// 	var model = this.getView().getModel("salesModel").oData;
-		// 	if (model.length > 0) {
-		// 		for (var i = model.length - 1; i >= 0; i--) {
-		// 			this.order = model[i].Consnumber;
-		// 			var inte = parseInt(this.order);
-		// 			inte++;
-		// 			var res = inte;
-		// 			this.order = res.toString();
-		// 			// this.serialNo = i + 2;
-		// 			console.log(this.order);
-		// 			// console.log(this.serialNo);
-		// 			break;
-		// 		}
-		// 	} else {
-		// 		this.order = '1';
-		// 	}
-		// },
+        
         handleValidateSalesFields : function (evt) {
             var salesState= true;
             var content = this.salesData.getContent()[0].getContent();
@@ -166,15 +149,22 @@ sap.ui.define([
             this.salesOrgField.setValue(title + " - " + desc);
         },
         handleValueHelpSalesOrgSearch: function (evt) {
-            var sValue = evt.getParameter("value");
+           var sValue = evt.getParameter("value");
+            var filters = [];
             if (sValue.length > 0) {
-                if (sValue.length == 4) {
-                    var oFilter1 = new sap.ui.model.Filter("Salesorg", 'EQ', sValue);
-                    this.salesOrganization.getBinding("items").filter([oFilter1]);
-                } else {
-                    var oFilter2 = new sap.ui.model.Filter("Salesorgtext", 'EQ', sValue);
-                    this.salesOrganization.getBinding("items").filter([oFilter2]);
-                }
+                var filter1 = new sap.ui.model.Filter({
+                    path: "Salesorg",
+                    operator: "Contains",
+                    value1: sValue
+                });
+                var filter2 = new sap.ui.model.Filter({
+                    path: "Salesorgtext",
+                    operator: "Contains",
+                    value1: sValue
+                });
+                var sFilters = [filter1, filter2];
+                filters.push(new sap.ui.model.Filter(sFilters, false));
+                this.salesOrganization.getBinding("items").filter(filters, false);
             } else {
                 this.salesOrganization.getBinding("items").filter([]);
             }
@@ -195,15 +185,22 @@ sap.ui.define([
             this.getView().getModel("appView").setProperty("/distributionChannel", title);
         },
         handleValueHelpDistribSearch: function (evt) {
-            var sValue = evt.getParameter("value");
+           var sValue = evt.getParameter("value");
+            var filters = [];
             if (sValue.length > 0) {
-                if (sValue.length == 2) {
-                    var oFilter1 = new sap.ui.model.Filter("Dc", 'EQ', sValue);
-                    this.distribution.getBinding("items").filter([oFilter1]);
-                } else {
-                    var oFilter2 = new sap.ui.model.Filter("Dctext", 'EQ', sValue);
-                    this.distribution.getBinding("items").filter([oFilter2]);
-                }
+                var filter1 = new sap.ui.model.Filter({
+                    path: "Distributionchannel",
+                    operator: "Contains",
+                    value1: sValue
+                });
+                var filter2 = new sap.ui.model.Filter({
+                    path: "Distributionchanneltext",
+                    operator: "Contains",
+                    value1: sValue
+                });
+                var sFilters = [filter1, filter2];
+                filters.push(new sap.ui.model.Filter(sFilters, false));
+                this.distribution.getBinding("items").filter(filters, false);
             } else {
                 this.distribution.getBinding("items").filter([]);
             }
@@ -223,17 +220,22 @@ sap.ui.define([
             this.divisionField.setValue(title + " - " + desc);
         },
         handleValueHelpDivisionSearch: function (evt) {
-            var sValue = evt.getParameter("value");
+           var sValue = evt.getParameter("value");
+            var filters = [];
             if (sValue.length > 0) {
-                if (sValue.length == 2) {
-                    var oFilter1 = new sap.ui.model.Filter("Division", 'EQ', sValue);
-                    this.division.getBinding("items").filter([oFilter1]);
-                } else {
-                    var oFilter2 = new sap.ui.model.Filter("Divisiontext", 'EQ', sValue);
-                    this.division.getBinding("items").filter([oFilter2]);
-                }
-
-
+                var filter1 = new sap.ui.model.Filter({
+                    path: "Division",
+                    operator: "Contains",
+                    value1: sValue
+                });
+                var filter2 = new sap.ui.model.Filter({
+                    path: "Divisiontext",
+                    operator: "Contains",
+                    value1: sValue
+                });
+                var sFilters = [filter1, filter2];
+                filters.push(new sap.ui.model.Filter(sFilters, false));
+                this.division.getBinding("items").filter(filters, false);
             } else {
                 this.division.getBinding("items").filter([]);
             }

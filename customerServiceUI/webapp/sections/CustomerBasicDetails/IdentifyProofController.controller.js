@@ -6,8 +6,16 @@ sap.ui.define([
 	"use strict";
 
 	return Controller.extend("customerReview.customerServiceUI.sections.CustomerBasicDetails.IdentifyProofController", {
-		
-		onConfirm:function (evt) {
+		/**
+     * @override
+     */
+    onInit: function() {
+    },
+    onAfterRendering: function(oEvent){
+        var that = this;
+        console.log(that.getView().getModel("appView")); 
+    },
+	onConfirm:function (evt) {
       // var oFormData = new FormData();
       this.getView().getModel("appView").setProperty("/dmsFile", new FormData());
       // var oFileUploader = evt.getSource();
@@ -23,6 +31,6 @@ sap.ui.define([
       });
         this.getView().getModel("dmsModel").updateBindings(true);
       this.firstTime=false;
-  },
+  }
 	});
 });

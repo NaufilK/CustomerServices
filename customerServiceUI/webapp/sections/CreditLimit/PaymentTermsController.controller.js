@@ -30,7 +30,7 @@ sap.ui.define([
         handleValueHelpPaymentTermsSearch:function (evt) {
             var sValue = evt.getParameter("value");
                 if (sValue.length > 0) {
-                        var oFilter1 = new sap.ui.model.Filter("paymentterm", 'EQ', sValue);
+                        var oFilter1 = new sap.ui.model.Filter("paymentterm", 'Contains', sValue);
                         this.paymentTerms.getBinding("items").filter([oFilter1]);
                 } else {
                     this.paymentTerms.getBinding("items").filter([]);

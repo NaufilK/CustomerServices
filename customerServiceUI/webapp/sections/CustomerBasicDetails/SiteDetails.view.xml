@@ -2,10 +2,10 @@
 	<forms:SimpleForm editable="false" layout="ColumnLayout">
 		<Label text="Legal Entity" visible="{=${fieldMappingModels>/LegalEntityVisible} === true ? true : false}"
  required="{=${fieldMappingModels>/LegalEntityMandatory} === true ? true : false}"/>
-		<Input value="{Customers>/zcustomer_legal_name}" enabled="{=${Customers>/zrequest_no} ? false : true}" maxLength="50" visible="{=${fieldMappingModels>/LegalEntityVisible} === true ? true : false}"/>
+		<Input value="{Customers>/zlegal_entity}" enabled="{=${Customers>/zrequest_no} ? false : true}" maxLength="2" visible="{=${fieldMappingModels>/LegalEntityVisible} === true ? true : false}"/>
 		<Label text="Legal Name" visible="{=${fieldMappingModels>/LegalNameVisible} === true ? true : false}"
  required="{=${fieldMappingModels>/LegalNameMandatory} === true ? true : false}"/>
-        <MultiInput value="{Customers>/zcustomer_legal_name}" enabled="{=${Customers>/zrequest_no} ? false : true}" valueHelpRequest="handleValueHelpForLegalName"
+        <MultiInput showClearIcon="true" value="{Customers>/zcustomer_legal_name}" enabled="{=${Customers>/zrequest_no} ? false : true}" valueHelpRequest="handleValueHelpForLegalName"
 		valueHelpOnly="true" visible="{=${fieldMappingModels>/LegalNameVisible} === true ? true : false}"/>
 		<Label text="Legal Form" visible="{=${fieldMappingModels>/LegalFormVisible} === true ? true : false}"
  required="{=${fieldMappingModels>/LegalFormMandatory} === true ? true : false}"/>
@@ -21,7 +21,9 @@
 		
 		<Label text="Authorization Group" visible="{=${fieldMappingModels>/AuthorizationGroupVisible} === true ? true : false}"
  required="{=${fieldMappingModels>/AuthorizationGroupMandatory} === true ? true : false}"/>
-		<Input enabled="{=${Customers>/zrequest_status} !== 'In Progress' ? true : false}" value="{Customers>/zauthorization_group}" maxLength="4" visible="{=${fieldMappingModels>/AuthorizationGroupVisible} === true ? true : false}"/>
-
+		<!-- <Input enabled="{=${Customers>/zrequest_status} !== 'In Progress' ? true : false}" value="{Customers>/zauthorization_group}" maxLength="4" visible="{=${fieldMappingModels>/AuthorizationGroupVisible} === true ? true : false}"/> -->
+		<MultiInput showClearIcon="true" enabled="{=${Customers>/zrequest_status} !== 'In Progress' ? true : false}" valueHelpRequest="handleValueHelpForAuthorization" value="{Customers>/zauthorization_group}"
+		valueHelpOnly="true" visible="{=${fieldMappingModels>/AuthorizationGroupVisible} === true ? true : false}"/>
+		
 	</forms:SimpleForm>
 </mvc:View>

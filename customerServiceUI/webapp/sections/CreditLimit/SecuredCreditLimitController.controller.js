@@ -44,7 +44,7 @@ sap.ui.define([
             
                 this.bank.getBinding("items").filter([]);
                 if(this.bankCountryVal !== undefined){
-                this.bank.getBinding("items").filter([new sap.ui.model.Filter("country", "EQ", this.bankCountryVal)]);
+                this.bank.getBinding("items").filter([new sap.ui.model.Filter("country", "Contains", this.bankCountryVal)]);
                 this.bank.open();
                 }else{
                     MessageBox.error("Please Select Bank Country first");
@@ -54,7 +54,7 @@ sap.ui.define([
             this.bankField1 = evt.getSource();
                 this.bank1.getBinding("items").filter([]);
                 if(this.bankCountryVal1 !== undefined){
-                this.bank1.getBinding("items").filter([new sap.ui.model.Filter("country", "EQ", this.bankCountryVal1)]);
+                this.bank1.getBinding("items").filter([new sap.ui.model.Filter("country", "Contains", this.bankCountryVal1)]);
                 this.bank1.open();
                 }else{
                     MessageBox.error("Please Select Bank Country first");
@@ -91,7 +91,7 @@ sap.ui.define([
         handleValueHelpBankSearch:function (evt) {
             var sValue = evt.getParameter("value");
                 if (sValue.length > 0) {
-                        var oFilter1 = new sap.ui.model.Filter("bank", 'EQ', sValue);
+                        var oFilter1 = new sap.ui.model.Filter("bank", 'Contains', sValue);
                         this.bank.getBinding("items").filter([oFilter1]);
                 } else {
                     this.bank.getBinding("items").filter([]);
@@ -100,7 +100,7 @@ sap.ui.define([
         handleValueHelpBankSearch1:function (evt) {
             var sValue = evt.getParameter("value");
                 if (sValue.length > 0) {
-                        var oFilter1 = new sap.ui.model.Filter("bank", 'EQ', sValue);
+                        var oFilter1 = new sap.ui.model.Filter("bank", 'Contains', sValue);
                         this.bank1.getBinding("items").filter([oFilter1]);
                 } else {
                     this.bank1.getBinding("items").filter([]);
@@ -109,7 +109,7 @@ sap.ui.define([
         handleValueHelpBankCountrySearch:function (evt) {
             var sValue = evt.getParameter("value");
                 if (sValue.length > 0) {
-                        var oFilter1 = new sap.ui.model.Filter("country", 'EQ', sValue);
+                        var oFilter1 = new sap.ui.model.Filter("Country", 'Contains', sValue);
                         this.bankCountry.getBinding("items").filter([oFilter1]);
                 } else {
                     this.bankCountry.getBinding("items").filter([]);
@@ -118,7 +118,7 @@ sap.ui.define([
         handleValueHelpBankCountrySearch1:function (evt) {
             var sValue = evt.getParameter("value");
                 if (sValue.length > 0) {
-                        var oFilter1 = new sap.ui.model.Filter("country", 'EQ', sValue);
+                        var oFilter1 = new sap.ui.model.Filter("Country", 'Contains', sValue);
                         this.bankCountry1.getBinding("items").filter([oFilter1]);
                 } else {
                     this.bankCountry1.getBinding("items").filter([]);

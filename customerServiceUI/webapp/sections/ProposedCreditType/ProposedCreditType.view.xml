@@ -112,18 +112,17 @@ xmlns:core="sap.ui.core" xmlns:u="sap.ui.unified">
  required="{=${fieldMappingModels>/VarianceinAmountAEDMandatory} === true ? true : false}"/>
         <Input enabled="{=${Customers>/zrequest_status} !== 'In Progress' ? true : false}" value ="{Customers>/ztot_cl_variance_in_amount3}" visible="{=${fieldMappingModels>/473} === true ? true : false}"/>
 		
-              <core:Title text="Credit Limit Validity" />
-              <!-- check date field -->
-        <Label text="Proposed Date" visible="{=${fieldMappingModels>/ProposedDateVisible} === true ? true : false}"
- required="{=${fieldMappingModels>/ProposedDateMandatory} === true ? true : false}"/>
- <!-- <Input /> -->
-        <DatePicker enabled="{=${Customers>/zrequest_status} !== 'In Progress' ? true : false}" value="{Customers>/zcl_validity_proposed_date}" visible="{=${fieldMappingModels>/ProposedDateVisible} === true ? true : false}" valueFormat="yyyy-MM-dd" displayFormat="long" />
-		
-              <core:Title text="Payment Terms" />
-        <Label text="Proposed Max. Credit Days" visible="{=${fieldMappingModels>/ProposedMax.CreditDaysVisible} === true ? true : false}"
+       <core:Title text="Credit Limit Validity" />
+       <!-- check date field -->
+       <Label text="Proposed Date" visible="{=${fieldMappingModels>/ProposedDateVisible} === true ? true : false}"
+       required="{=${fieldMappingModels>/ProposedDateMandatory} === true ? true : false}"/>
+       <!-- <DatePicker enabled="{=${Customers>/zrequest_status} !== 'In Progress' ? true : false}" value="{Customers>/zcl_validity_proposed_date}" visible="{=${fieldMappingModels>/ProposedDateVisible} === true ? true : false}" valueFormat="yyyy-MM-dd" displayFormat="long" /> -->
+	<DatePicker enabled="{=${Customers>/zrequest_status} !== 'In Progress' ? true : false}" value="{Customers>/zcl_validity_proposed_date}"  valueFormat="MM.dd.yyyy" visible="{=${fieldMappingModels>/ProposedDateVisible} === true ? true : false}"/>		
+       <core:Title text="Payment Terms" />
+       <Label text="Proposed Max. Credit Days" visible="{=${fieldMappingModels>/ProposedMax.CreditDaysVisible} === true ? true : false}"
  required="{=${fieldMappingModels>/ProposedMax.CreditDaysMandatory} === true ? true : false}"/>
-        <Input enabled="{=${Customers>/zrequest_status} !== 'In Progress' ? true : false}" value ="{Customers>/zpaytterm_proposed_maxcreditdy}" maxLength="20" visible="{=${fieldMappingModels>/ProposedMax.CreditDaysVisible} === true ? true : false}"/>
-		<Label text="Proposed Payment Term" visible="{=${fieldMappingModels>/ProposedPaymentTermVisible} === true ? true : false}"
+       <Input enabled="{=${Customers>/zrequest_status} !== 'In Progress' ? true : false}" value ="{Customers>/zpaytterm_proposed_maxcreditdy}" maxLength="20" visible="{=${fieldMappingModels>/ProposedMax.CreditDaysVisible} === true ? true : false}"/>
+	<Label text="Proposed Payment Term" visible="{=${fieldMappingModels>/ProposedPaymentTermVisible} === true ? true : false}"
  required="{=${fieldMappingModels>/ProposedPaymentTermMandatory} === true ? true : false}"/>
         <Input enabled="{=${Customers>/zrequest_status} !== 'In Progress' ? true : false}" value ="{Customers>/zpaytterm_proposed_paymentterm}" maxLength="20" visible="{=${fieldMappingModels>/ProposedPaymentTermVisible} === true ? true : false}"/>
     </forms:SimpleForm>

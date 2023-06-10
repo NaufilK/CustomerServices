@@ -24,7 +24,6 @@ sap.ui.define([
                     this.getView().addDependent(this.Incoterms);
                     this.Incoterms.setModel(this.getOwnerComponent().getModel());
                 }
-            
             },
             handleValueHelpForIncoterms:function (evt) {
                 this.IncotermsField = evt.getSource();
@@ -42,9 +41,8 @@ sap.ui.define([
             handleValueHelpIncotermsSearch: function (evt) {
                 var sValue = evt.getParameter("value");
                 if (sValue.length > 0) {
-                        var oFilter1 = new sap.ui.model.Filter("Inco1", 'EQ', sValue);
-                        this.Incoterms.getBinding("items").filter([oFilter1]);
-                
+                        var oFilter1 = new sap.ui.model.Filter("Inco1", 'Contains', sValue);
+                        this.Incoterms.getBinding("items").filter([oFilter1]);      
                 } else {
                     this.Incoterms.getBinding("items").filter([]);
                 }
@@ -52,7 +50,7 @@ sap.ui.define([
             handleValueHelpForCreditControl: function (evt) {
                 this.CCAField = evt.getSource();
                 if(this.getView().getModel("appView").getProperty("/distributionChannel")){
-                this.CCA.getBinding("items").filter([new sap.ui.model.Filter("distribution_channel", "EQ", this.getView().getModel("appView").getProperty("/distributionChannel"))]);
+                this.CCA.getBinding("items").filter([new sap.ui.model.Filter("distribution_channel", "Contains", this.getView().getModel("appView").getProperty("/distributionChannel"))]);
                 this.CCA.open();
                 }else{
                     MessageBox.error("Please select Distribution channel first");
@@ -66,15 +64,15 @@ sap.ui.define([
                 var desc = evt.getParameter("selectedItems")[0].getProperty("description");
                 this.CCAField.setValue(title + " - " + desc);
                 this.getView().getModel("appView").setProperty("/cca", title);
-            },
+            }
             // handleValueHelpCreditSegmentSearch: function (evt) {
             //     var sValue = evt.getParameter("value");
             //     if (sValue.length > 0) {
-            //         if (sValue.length == 2) {
-            //             var oFilter1 = new sap.ui.model.Filter("Land1", 'EQ', sValue);
+            //         if (sValue.length <= 2) {
+            //             var oFilter1 = new sap.ui.model.Filter("Land1", 'Contains', sValue);
             //             this.creditSegment.getBinding("items").filter([oFilter1]);
             //         } else {
-            //             var oFilter2 = new sap.ui.model.Filter("Landx", 'EQ', sValue);
+            //             var oFilter2 = new sap.ui.model.Filter("Landx", 'Contains', sValue);
             //             this.creditSegment.getBinding("items").filter([oFilter2]);
             //         }
             //         // this.Country.getBinding("items").filter([oFilter2]);

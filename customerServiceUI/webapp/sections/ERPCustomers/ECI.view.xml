@@ -6,7 +6,6 @@
         <Label text="Amount Insured" visible="{=${fieldMappingModels>/AmountInsuredVisible} === true ? true : false}"
          required="{=${fieldMappingModels>/AmountInsuredMandatory} === true ? true : false}" />
         <Input enabled="{=${Customers>/zrequest_status} !== 'In Progress' ? true : false}" value="{Customers>/zamount_insured}" maxLength="10" liveChange="handleSetMaxLength" type="Number" visible="{=${fieldMappingModels>/AmountInsuredVisible} === true ? true : false}"/>
-
         <Label text="Lead Months" visible="{=${fieldMappingModels>/LeadMonthsVisible} === true ? true : false}" 
         required="{=${fieldMappingModels>/LeadMonthsMandatory} === true ? true : false}" />
         <Input enabled="{=${Customers>/zrequest_status} !== 'In Progress' ? true : false}" value="{Customers>/zlead_months}" maxLength="8" type="Number" liveChange="handleSetMaxLength" visible="{=${fieldMappingModels>/LeadMonthsVisible} === true ? true : false}"/>

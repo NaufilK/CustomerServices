@@ -14,7 +14,7 @@
 			<MultiInput value="{creditSegmentModel>/zinfo_type}" valueHelpRequest="handleValueHelpForIndusType"
 		valueHelpOnly="true" />
 				<Label text="Name of Type" />
- <Input value="{creditSegmentModel>/zname_of_type}" id="nameOfType"/>
+ <Input value="{creditSegmentModel>/zname_of_type}" />
 		<Label text = "Relevance for check credit" />
 		<CheckBox selected="{creditSegmentModel>/zrelevant}" />
 		<Label text="Individual Step" />

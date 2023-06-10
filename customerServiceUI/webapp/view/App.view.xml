@@ -38,7 +38,7 @@
 
             </m:HBox>
         </headerContent>
-        <sections>
+         <sections>
         <ObjectPageSection titleUppercase="false" id="orderSectionSum" visible="{=${Customers>/zrequest_no} ? true : false}" title="Summary">
                 <subSections>
                     <ObjectPageSubSection id="orderdataSummary" title="Summary">
@@ -202,72 +202,23 @@
                 </subSections>
             </ObjectPageSection>
 
-            <ObjectPageSection titleUppercase="false" visible="{= ${Customers>/ztype_of_customer} === 'Cash' ? false : true}" id="SalesAreaSection" title="Sales Area">
+            <ObjectPageSection titleUppercase="false" id="SalesAreaSection" title="Sales Area">
                 <subSections>
-                    <ObjectPageSubSection id="salesAreadata" title="General Information">
+                    <ObjectPageSubSection id="salesAreadata" visible="false" title="General Information">
                         <blocks>
                             <SalesArea:GI id="salesAreadata1" />
                         </blocks>
                     </ObjectPageSubSection>
-                    <ObjectPageSubSection id="salesAreadata2" title="Sales Order">
-                        <blocks>
-                            <SalesArea:SalesOrder id="salesAreadata3" />
-                        </blocks>
-                    </ObjectPageSubSection>
-					<ObjectPageSubSection id="salesAreadata4" title="Pricing Statistic">
-                        <blocks>
-                            <SalesArea:PS id="salesAreadata5" />
-                        </blocks>
-                    </ObjectPageSubSection>
-                    <ObjectPageSubSection id="salesAreadata10" title="Agency Business">
-                        <blocks>
-                            <SalesArea:AgencyBusiness id="salesAreadata11" />
-                        </blocks>
-                    </ObjectPageSubSection>
-                    <ObjectPageSubSection id="salesAreadata6" title="Shipping">
-                        <blocks>
-                            <SalesArea:Shipping id="salesAreadata7" />
-                        </blocks>
-                    </ObjectPageSubSection>
-					<ObjectPageSubSection id="salesAreadata8" title="Partial Deliveries">
-                        <blocks>
-                            <SalesArea:PartialDeliveries id="salesAreadata9" />
-                        </blocks>
-                    </ObjectPageSubSection>
-
-                     <ObjectPageSubSection id="salesAreadata12" title="Billing Document">
-                        <blocks>
-                            <SalesArea:BillingDocument id="salesAreadata13" />
-                        </blocks>
-                    </ObjectPageSubSection>
-                    <ObjectPageSubSection id="salesAreadata14" title="Delivery Payment Term">
-                        <blocks>
-                            <SalesArea:DPT id="salesAreadata15" />
-                        </blocks>
-                    </ObjectPageSubSection>
-					<ObjectPageSubSection id="salesAreadata16" title="Accounting">
+                    
+					<ObjectPageSubSection id="salesAreadata16">
                         <blocks>
                             <SalesArea:Accounting id="salesAreadata17" />
                         </blocks>
                     </ObjectPageSubSection>
-                    <ObjectPageSubSection id="salesAreadata18" title="Customer Group">
-                        <blocks>
-                            <SalesArea:CustomerGroup id="salesAreadata19" />
-                        </blocks>
-                    </ObjectPageSubSection>
-                    <ObjectPageSubSection id="salesAreadata20" title="Partner Functions">
-                        <blocks>
-                            <SalesArea:PartnerFunctions id="salesAreadata21" />
-                        </blocks>
-                    </ObjectPageSubSection>
-					<ObjectPageSubSection id="salesAreadata22" title="Tax Indicator">
-                        <blocks>
-                            <SalesArea:TaxIndicator id="salesAreadata23"/>
-                        </blocks>
-                    </ObjectPageSubSection>
+                    
                 </subSections>
             </ObjectPageSection>
-            <ObjectPageSection titleUppercase="false" visible="{= ${Customers>/ztype_of_customer} === 'Cash' ? false : true}" id="CreditProfileSection" title="Credit profile">
+            <!-- <ObjectPageSection titleUppercase="false" visible="{= ${appView>/vertical} === 'Cash' ? false : true}" id="CreditProfileSection" title="Credit profile">
                 <subSections>
                     <ObjectPageSubSection id="CreditProfileData" title="Credit Profile">
                         <blocks>
@@ -299,13 +250,9 @@
                             <CreditProfileSegmentData:Lp id="CreditProfileSection6" />
                         </blocks>
                     </ObjectPageSubSection>
-                    <!-- <ObjectPageSubSection id="kf" title="Key Figures">
-                        <blocks>
-                            <CreditProfileSegmentData:KF id="CreditProfileSection7" />
-                        </blocks>
-                    </ObjectPageSubSection> -->
+                 
                 </subSections>
-            </ObjectPageSection>
+            </ObjectPageSection> -->
             <ObjectPageSection titleUppercase="false" visible="{= ${Customers>/ztype_of_customer} === 'Cash' ? false : true}" id="PlannedActualSection" title="Credit Limit">
                 <subSections>
                     <ObjectPageSubSection id="plannedandactual" title="Credit Limit Type">
@@ -404,6 +351,7 @@
                     </ObjectPageSubSection>
                 </subSections>
             </ObjectPageSection>
+            
         </sections>
     </ObjectPageLayout>
     </m:Page>

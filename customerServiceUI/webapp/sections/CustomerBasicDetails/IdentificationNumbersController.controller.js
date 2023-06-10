@@ -6,6 +6,23 @@ sap.ui.define([
 	"use strict";
 
 	return Controller.extend("customerReview.customerServiceUI.sections.CustomerBasicDetails.IdentificationNumbersController", {
+		/**
+		 * @override
+		 */
+		onInit: function() {
+			// Controller.prototype.onInit.apply(this, arguments);
+			if (!this.License) {
+				this.License = new sap.ui.xmlfragment("customerReview.customerServiceUI.fragments.LicenceType",this);
+				this.getView().addDependent(this.License);
+				this.License.setModel(this.getOwnerComponent().getModel());
+			  }
+			if (!this.SrcOfEnquiry) {
+				this.SrcOfEnquiry = new sap.ui.xmlfragment("customerReview.customerServiceUI.fragments.SourceOfEnquiry",this);
+				this.getView().addDependent(this.SrcOfEnquiry);
+				this.SrcOfEnquiry.setModel(this.getOwnerComponent().getModel());
+			  }
+		
+		},
        //Validation of the date field Valid From
 		handleStartDateChange: function (evt) {
 			this.ExpStrtDate = evt.getSource();
@@ -84,6 +101,58 @@ sap.ui.define([
 				} else
 					evt.getSource().setValueState("None").setValueStateText("");
 			} else evt.getSource().setValueState("None").setValueStateText("");
-		}
+		},
+		
+		//Value Help for License
+		handleValueHelpForLicense: function (evt) {
+            this.LicenseField = evt.getSource();
+            this.License.getBinding("items").filter([]);
+            this.License.open();
+        },
+        handleValueHelpLicenseTypSearch: function (evt) {
+            var sValue = evt.getParameter("value");
+            if (sValue.length > 0) {
+                var oFilter1 = new sap.ui.model.Filter("licence_type", 'Contains', sValue);
+                this.License.getBinding("items").filter([oFilter1]);
+            } else {
+                this.License.getBinding("items").filter([]);
+            }
+        },
+        handleValueHelpLicenseTypConfirm: function (evt) {
+            var title = evt.getParameter("selectedItems")[0].getProperty("title");
+            var desc = evt.getParameter("selectedItems")[0].getProperty("description");
+            this.LicenseField.setValue(title + " - " + desc);
+            this.License.getBinding("items").filter([]);
+            this.License.close();
+        },
+        handleValueHelpLicenseTypClose: function (evt) {
+            this.License.close();
+        },
+
+		//Value Help for Source Of Enquiry
+		handleValueHelpForSourceOfEnquiry: function (evt) {
+            this.SrcOfEnquiryField = evt.getSource();
+            this.SrcOfEnquiry.getBinding("items").filter([]);
+            this.SrcOfEnquiry.open();
+        },
+        handleValueHelpSrcOfEnqrySearch: function (evt) {
+            var sValue = evt.getParameter("value");
+            if (sValue.length > 0) {
+                    var oFilter1 = new sap.ui.model.Filter("zsource_of_enquiry", 'Contains', sValue);
+                    this.SrcOfEnquiry.getBinding("items").filter([oFilter1]);
+            } else {
+                this.SrcOfEnquiry.getBinding("items").filter([]);
+            }
+        },
+        handleValueHelpSrcOfEnqryConfirm: function (evt) {
+            var title = evt.getParameter("selectedItems")[0].getProperty("title");
+            var desc = evt.getParameter("selectedItems")[0].getProperty("description");
+            this.SrcOfEnquiryField.setValue(title + " - " + desc);
+            this.SrcOfEnquiry.getBinding("items").filter([]);
+            this.SrcOfEnquiry.close();
+        },
+        handleValueHelpSrcOfEnqryClose: function (evt) {
+            this.SrcOfEnquiry.close();
+        }
 	});
 });

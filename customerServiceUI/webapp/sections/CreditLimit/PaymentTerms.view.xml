@@ -17,7 +17,7 @@
         <!-- <Input value="{Customers>/zproxima}" maxLength="20" visible="{=${fieldMappingModels>/IsProximaVisible} === true ? true : false}" /> -->
         <Label text="Payment Terms" visible="{=${fieldMappingModels>/PaymentTermsVisible} === true ? true : false}"
          required="{=${fieldMappingModels>/PaymentTermsMandatory} === true ? true : false}" />
-        <MultiInput enabled="{=${Customers>/zrequest_status} !== 'In Progress' ? true : false}" value="{Customers>/zpayment_terms}" valueHelpRequest="handleValueHelpForPaymentTerms"
+        <MultiInput showClearIcon="true" enabled="{=${Customers>/zrequest_status} !== 'In Progress' ? true : false}" value="{Customers>/zpayment_terms}" valueHelpRequest="handleValueHelpForPaymentTerms"
 		valueHelpOnly="true" visible="{=${fieldMappingModels>/TermsOfPaymentVisible} === true ? true : false}"/>
     </forms:SimpleForm>
 </mvc:View>

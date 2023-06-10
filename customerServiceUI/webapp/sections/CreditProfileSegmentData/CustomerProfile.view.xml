@@ -10,9 +10,9 @@
 		<Label text="Check Rule" visible="{=${fieldMappingModels>/CheckruleVisible} === true ? true : false}"
  required="{=${fieldMappingModels>/CheckruleMandatory} === true ? true : false}"/>
 		<Input enabled="{=${Customers>/zrequest_status} !== 'In Progress' ? true : false}" value="{Customers>/zcheck_rule}" maxLength="20" visible="{=${fieldMappingModels>/CheckruleVisible} === true ? true : false}"/>
-		<Label text="Credit Segment" visible="{=${fieldMappingModels>/CreditSegmentVisible} === true ? true : false}"
+		<!-- <Label text="Credit Segment" visible="{=${fieldMappingModels>/CreditSegmentVisible} === true ? true : false}"
  required="{=${fieldMappingModels>/CreditSegmentMandatory} === true ? true : false}"/>
-		<Input enabled="{=${Customers>/zrequest_status} !== 'In Progress' ? true : false}" value="{Customers>/zcredit_segment}" visible="{=${fieldMappingModels>/CreditSegmentVisible} === true ? true : false}"/>
+		<Input enabled="{=${Customers>/zrequest_status} !== 'In Progress' ? true : false}" value="{Customers>/zcredit_segment}" visible="{=${fieldMappingModels>/CreditSegmentVisible} === true ? true : false}"/> -->
 		<Label text="Limit Define" visible="{=${fieldMappingModels>/LimitdefineVisible} === true ? true : false}"
  required="{=${fieldMappingModels>/LimitdefineMandatory} === true ? true : false}"/>
 		<Input enabled="{=${Customers>/zrequest_status} !== 'In Progress' ? true : false}" value="{Customers>/zlimit_define}" maxLength="35" visible="{=${fieldMappingModels>/LimitdefineVisible} === true ? true : false}"/>
@@ -25,7 +25,7 @@
 		<DatePicker enabled="{=${Customers>/zrequest_status} !== 'In Progress' ? true : false}" value="{Customers>/zvalidity_to}"  valueFormat="MM.dd.yyyy" visible="{=${fieldMappingModels>/ValiditytoVisible} === true ? true : false}"/>
 		<Label text="Credit Segment" visible="{=${fieldMappingModels>/CreditSegmentVisible} === true ? true : false}"
  required="{=${fieldMappingModels>/CreditSegmentMandatory} === true ? true : false}"/>
-		 <MultiInput enabled="{=${Customers>/zrequest_status} !== 'In Progress' ? true : false}" value="{Customers>/zcredit_segment}" valueHelpRequest="handleValueHelpForCS"
+		 <MultiInput showClearIcon="true" enabled="{=${Customers>/zrequest_status} !== 'In Progress' ? true : false}" value="{Customers>/zcredit_segment}" valueHelpRequest="handleValueHelpForCS"
 		valueHelpOnly="true" visible="{=${fieldMappingModels>/CreditSegmentVisible} === true ? true : false}"/>
 		<Label text="Relationship to BP" visible="{=${fieldMappingModels>/RelationshiptoBPVisible} === true ? true : false}"
  required="{=${fieldMappingModels>/RelationshiptoBPMandatory} === true ? true : false}"/>

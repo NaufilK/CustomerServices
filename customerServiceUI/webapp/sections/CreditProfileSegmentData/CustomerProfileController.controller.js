@@ -36,7 +36,7 @@ sap.ui.define([
             handleValueHelpForCS: function (evt) {
                 this.creditSegmentField = evt.getSource();
                 if(this.getView().getModel("appView").getProperty("/cca")){
-                    this.cs.getBinding("items").filter([new sap.ui.model.Filter("credit_control_area", "EQ", this.getView().getModel("appView").getProperty("/cca"))]);
+                    this.cs.getBinding("items").filter([new sap.ui.model.Filter("credit_control_area", "Contains", this.getView().getModel("appView").getProperty("/cca"))]);
                     this.cs.open();
                     }else{
                         MessageBox.error("Please select Credit Control Area");
@@ -53,11 +53,11 @@ sap.ui.define([
             // handleValueHelpCreditSegmentSearch: function (evt) {
             //     var sValue = evt.getParameter("value");
             //     if (sValue.length > 0) {
-            //         if (sValue.length == 2) {
+            //         if (sValue.length <= 2) {
             //             var oFilter1 = new sap.ui.model.Filter("Land1", 'EQ', sValue);
             //             this.creditSegment.getBinding("items").filter([oFilter1]);
             //         } else {
-            //             var oFilter2 = new sap.ui.model.Filter("Landx", 'EQ', sValue);
+            //             var oFilter2 = new sap.ui.model.Filter("Landx", 'Contains', sValue);
             //             this.creditSegment.getBinding("items").filter([oFilter2]);
             //         }
             //         // this.Country.getBinding("items").filter([oFilter2]);
