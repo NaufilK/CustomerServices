@@ -207,7 +207,7 @@
 			"id": "endevent2",
 			"name": "purge",
 			"eventDefinitions": {
-				"f986b210-3a11-4998-809e-54fd3f052cf8": {}
+				"a75f10bc-6263-4dfb-b6b6-929af309a0c2": {}
 			}
 		},
 		"368954ef-0247-4b9e-af51-bb805d462b4c": {
@@ -244,7 +244,7 @@
 			"classDefinition": "com.sap.bpm.wfs.ServiceTask",
 			"destination": "ABAP_COMMUNICATION_SYSTEM",
 			"destinationSource": "consumer",
-			"path": "/sap/opu/odata4/sap/zsb_wf_customer_v4/srvd_a2x/sap/zsd_wf_customer/0001/customer(customer=${context.customerId},zsales_orgnization='${context.salesOrganizationId}')/_approvers",
+			"path": "/sap/opu/odata4/sap/zsb_wf_customer_v4/srvd_a2x/sap/zsd_wf_customer/0001/customer(customer=${context.customerId})/_approvers",
 			"httpMethod": "GET",
 			"responseVariable": "${context.approvers}",
 			"id": "servicetask1",
@@ -634,10 +634,6 @@
 			"classDefinition": "com.sap.bpm.wfs.SampleContext",
 			"reference": "/sample-data/customerCreateUT.json",
 			"id": "default-start-context"
-		},
-		"f986b210-3a11-4998-809e-54fd3f052cf8": {
-			"classDefinition": "com.sap.bpm.wfs.TerminateEventDefinition",
-			"id": "terminateeventdefinition1"
 		},
 		"de32c999-1766-421d-b24e-a7968f7feb71": {
 			"classDefinition": "com.sap.bpm.wfs.TimerEventDefinition",
@@ -1031,7 +1027,7 @@
 		},
 		"62d7f4ed-4063-4c44-af8b-39050bd44926": {
 			"classDefinition": "com.sap.bpm.wfs.LastIDs",
-			"terminateeventdefinition": 2,
+			"terminateeventdefinition": 4,
 			"messageeventdefinition": 2,
 			"message": 1,
 			"timereventdefinition": 12,
@@ -1098,6 +1094,10 @@
 			"subject": "Violation: Creation of a new customer (${context.customerName}) - ${context.violation.Violation_Message}",
 			"text": "${context.violation.Violation_Message}",
 			"id": "maildefinition7"
+		},
+		"a75f10bc-6263-4dfb-b6b6-929af309a0c2": {
+			"classDefinition": "com.sap.bpm.wfs.TerminateEventDefinition",
+			"id": "terminateeventdefinition4"
 		}
 	}
 }
