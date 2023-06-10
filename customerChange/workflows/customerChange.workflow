@@ -4,7 +4,22 @@
 			"classDefinition": "com.sap.bpm.wfs.Model",
 			"id": "iffco.customerchange",
 			"subject": "customerChange",
-			"customAttributes": [],
+			"customAttributes": [{
+				"id": "customerId",
+				"label": "customerId",
+				"type": "string",
+				"value": "${context.customerId}"
+			}, {
+				"id": "currentApproverName",
+				"label": "currentApproverName",
+				"type": "string",
+				"value": "${context.currentApproverName}"
+			}, {
+				"id": "currentApprover",
+				"label": "currentApprover",
+				"type": "string",
+				"value": "${context.currentApprover}"
+			}],
 			"name": "customerChange",
 			"documentation": "Main customer change process",
 			"lastIds": "62d7f4ed-4063-4c44-af8b-39050bd44926",
@@ -229,7 +244,7 @@
 			"classDefinition": "com.sap.bpm.wfs.ServiceTask",
 			"destination": "ABAP_COMMUNICATION_SYSTEM",
 			"destinationSource": "consumer",
-			"path": "/sap/opu/odata4/sap/zsb_wf_customer_v4/srvd_a2x/sap/zsd_wf_customer/0001/customer(customer=${context.customerId},zsales_orgnization='${context.salesOrganizationId}')/_approvers",
+			"path": "/sap/opu/odata4/sap/zsb_wf_customer_v4/srvd_a2x/sap/zsd_wf_customer/0001/customer(customer=${context.customerId})/_approvers",
 			"httpMethod": "GET",
 			"responseVariable": "${context.approvers}",
 			"id": "servicetask1",
@@ -547,6 +562,13 @@
 			"name": "SequenceFlow50",
 			"sourceRef": "b4178123-3f70-4563-9149-28b7038e714f",
 			"targetRef": "8ea5cbb9-7d6b-4dd1-b03e-feefcc6400f3"
+		},
+		"dcc6acfd-8527-4645-92ff-ec7dbf5d22d6": {
+			"classDefinition": "com.sap.bpm.wfs.SequenceFlow",
+			"id": "sequenceflow51",
+			"name": "SequenceFlow51",
+			"sourceRef": "8ea5cbb9-7d6b-4dd1-b03e-feefcc6400f3",
+			"targetRef": "350fe4a6-df14-45fc-bd76-7d5703fd7140"
 		},
 		"42fa7a2d-c526-4a02-b3ba-49b5168ba644": {
 			"classDefinition": "com.sap.bpm.wfs.ui.Diagram",
@@ -976,6 +998,13 @@
 			"targetSymbol": "4980ae3b-58e6-49a4-a93d-d153ef9e50e7",
 			"object": "e3915251-8f0f-436a-8854-69382840cc16"
 		},
+		"627624f0-a1e2-4ccb-ad2a-54f3e467bc17": {
+			"classDefinition": "com.sap.bpm.wfs.ui.SequenceFlowSymbol",
+			"points": "483.1471196477843,308.876212290188 483.1471252441406,221 518.4999988079071,221",
+			"sourceSymbol": "4980ae3b-58e6-49a4-a93d-d153ef9e50e7",
+			"targetSymbol": "eaa00137-f797-40ca-91c1-0c3d9c9cd98c",
+			"object": "dcc6acfd-8527-4645-92ff-ec7dbf5d22d6"
+		},
 		"8e96ac8d-76c4-403a-baf0-f4c846b9c398": {
 			"classDefinition": "com.sap.bpm.wfs.ui.BoundaryEventSymbol",
 			"x": 504.80148339118773,
@@ -1063,20 +1092,6 @@
 			"subject": "Violation: Change of the customer (${context.customerName}) - ${context.violation.Violation_Message}",
 			"text": "${context.violation.Violation_Message}",
 			"id": "maildefinition7"
-		},
-		"dcc6acfd-8527-4645-92ff-ec7dbf5d22d6": {
-			"classDefinition": "com.sap.bpm.wfs.SequenceFlow",
-			"id": "sequenceflow51",
-			"name": "SequenceFlow51",
-			"sourceRef": "8ea5cbb9-7d6b-4dd1-b03e-feefcc6400f3",
-			"targetRef": "350fe4a6-df14-45fc-bd76-7d5703fd7140"
-		},
-		"627624f0-a1e2-4ccb-ad2a-54f3e467bc17": {
-			"classDefinition": "com.sap.bpm.wfs.ui.SequenceFlowSymbol",
-			"points": "483.1471196477843,308.876212290188 483.1471252441406,221 518.4999988079071,221",
-			"sourceSymbol": "4980ae3b-58e6-49a4-a93d-d153ef9e50e7",
-			"targetSymbol": "eaa00137-f797-40ca-91c1-0c3d9c9cd98c",
-			"object": "dcc6acfd-8527-4645-92ff-ec7dbf5d22d6"
 		}
 	}
 }

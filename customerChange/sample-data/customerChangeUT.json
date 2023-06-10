@@ -12,7 +12,8 @@
   "submittedByName": "John Smith",
   "submittedByRole": "Sales Person",
   "submittedOn": "01.02.2023",
-  "salesOrganizationId": "01",
   "linkToTask": "https://<spaceId>.sap-process-automation.cfapps.eu10.hana.ondemand.com/comsapspaprocessautomation.comsapspainbox/inbox.html#/detail/NA/<taskID>/TaskCollection(SAP__Origin='NA',InstanceID='<taskID>')",
-  "testMode": true
+  "testMode": true,
+  "requestId": "40f308ac-a48f-433c-bf17-576f7821441a",
+  "channel": "Channel 1"
 }
