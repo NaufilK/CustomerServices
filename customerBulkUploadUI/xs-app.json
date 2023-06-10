@@ -12,8 +12,8 @@
     {
       "source": "^/sap/(.*)$",
       "target": "/sap/$1",
-      "destination": "abap-cloud-iffcodev_abap_env-iffcotech_limited_fzc_iffcodev-iffcodev",
-      "authenticationType": "xsuaa",
+      "destination": "ABAP_COMMUNICATION_SYSTEM",
+      "authenticationType": "none",
       "csrfProtection": false
     },
     {
