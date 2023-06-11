@@ -17,12 +17,57 @@
         },
         "dataSources": {
             "mainService": {
-                "uri": "/sap/opu/odata/",
+                "uri": "/sap/opu/odata/sap/ZSB_CLAP_BINDING/",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/mainService/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            },
+            "RuleEngine":{
+                "uri": "/sap/opu/odata/sap/ZSB_RULE_ENGINE/",
                 "type": "OData",
                 "settings": {
                     "annotations": [],
                     "localUri": "localService/metadata.xml",
                     "odataVersion": "2.0"
+                }
+            },
+            "S4D": {
+                "uri": "/sap/opu/odata/sap/ZIFFCO_VALUEHELP_SRV",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "2.0",
+                    "annotations": [],
+                    "localUri": "localService/ZIFFCO_VALUEHELP_SRV/metadata.xml"
+                }
+            },
+            "S4D111": {
+                "uri": "/sap/opu/odata/sap/ZIFFCO_VALUEHELP_SRV",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "2.0",
+                    "annotations": [],
+                    "localUri": "localService/ZIFFCO_VALUEHELP_SRV/metadata.xml"
+                }
+            },
+            "DMS":{
+                "uri": "/sap/opu/odata/sap/API_CV_ATTACHMENT_SRV",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            },
+            "bulkUpload": {
+                "uri": "/sap/opu/odata/sap/ZSRV_BND_DOC/",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "2.0",
+                    "annotations": [],
+                    "localUri": "localService/metadata.xml"
                 }
             }
         }
@@ -73,6 +118,47 @@
                 "dataSource": "mainService",
                 "preload": true,
                 "settings": {}
+            },
+            "RuleEngine":{
+                "dataSource": "RuleEngine",
+                "preload": true,
+                "settings": {}
+            },
+            "S4D": {
+                "dataSource": "S4D",
+                "preload": true,
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": false
+                }
+            },
+            "S4D111": {
+                "dataSource": "S4D111",
+                "preload": true,
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": false
+                }
+            },
+            "DMS": {
+                "dataSource": "DMS",
+                "preload": true,
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": false
+                }
+            },
+            "bulkUpload": {
+                "dataSource": "bulkUpload",
+                "preload": true,
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": false
+                }
             }
         },
         "resources": {

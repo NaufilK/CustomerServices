@@ -39,8 +39,8 @@ sap.ui.define([
 							"tiles": [{
 								"tileType": "sap.ushell.ui.tile.StaticTile",
 								"properties": {
-									"title": "Customer Review",
-									"targetURL": "#customerChangeUI-display"
+									"title": "Manage Customer",
+									"targetURL": "#iffcomanagecustomer-display"
 								}
 							}]
 						}]
@@ -51,11 +51,11 @@ sap.ui.define([
 				"adapter": {
 					"config": {
 						"inbounds": {
-							"customerChangeUI-display": {
-								"semanticObject": "customerChangeUI",
+							"iffcomanagecustomer-display": {
+								"semanticObject": "iffcomanagecustomer",
 								"action": "display",
-								"description": "A workflow task UI application",
-								"title": "Customer Review",
+								"description": "A Fiori application.",
+								"title": "Manage Customer",
 								"signature": {
 									"parameters": {}
 								},
