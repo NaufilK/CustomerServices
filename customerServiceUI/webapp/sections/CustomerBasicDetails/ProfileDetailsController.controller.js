@@ -247,7 +247,7 @@ sap.ui.define([
             },
             handleValueHelpTypOfEntityClose: function () {
                 this.entityType.close();
-            }
+            },
             
             //getService for type of entity to update fields
             handleEntityCheckModel: function(evt){

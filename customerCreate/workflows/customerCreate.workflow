@@ -266,7 +266,7 @@
 			"classDefinition": "com.sap.bpm.wfs.ServiceTask",
 			"destination": "ABAP_COMMUNICATION_SYSTEM",
 			"destinationSource": "consumer",
-			"path": "/sap/opu/odata4/sap/zsb_wf_customer_v4/srvd_a2x/sap/zsd_wf_customer/0001/customer(customer=${context.customerId},zsales_orgnization='${context.salesOrganizationId}')/_create_customer",
+			"path": "/sap/opu/odata4/sap/zsb_wf_customer_v4/srvd_a2x/sap/zsd_wf_customer/0001/customer(customer=${context.customerId})/_create_customer",
 			"httpMethod": "GET",
 			"id": "servicetask2",
 			"name": "createCustomer"
@@ -634,6 +634,10 @@
 			"classDefinition": "com.sap.bpm.wfs.SampleContext",
 			"reference": "/sample-data/customerCreateUT.json",
 			"id": "default-start-context"
+		},
+		"a75f10bc-6263-4dfb-b6b6-929af309a0c2": {
+			"classDefinition": "com.sap.bpm.wfs.TerminateEventDefinition",
+			"id": "terminateeventdefinition4"
 		},
 		"de32c999-1766-421d-b24e-a7968f7feb71": {
 			"classDefinition": "com.sap.bpm.wfs.TimerEventDefinition",
@@ -1094,10 +1098,6 @@
 			"subject": "Violation: Creation of a new customer (${context.customerName}) - ${context.violation.Violation_Message}",
 			"text": "${context.violation.Violation_Message}",
 			"id": "maildefinition7"
-		},
-		"a75f10bc-6263-4dfb-b6b6-929af309a0c2": {
-			"classDefinition": "com.sap.bpm.wfs.TerminateEventDefinition",
-			"id": "terminateeventdefinition4"
 		}
 	}
 }

@@ -266,7 +266,7 @@
 			"classDefinition": "com.sap.bpm.wfs.ServiceTask",
 			"destination": "ABAP_COMMUNICATION_SYSTEM",
 			"destinationSource": "consumer",
-			"path": "sap/opu/odata4/sap/zsb_wf_customer_v4/srvd_a2x/sap/zsd_wf_customer/0001/customer(customer=${context.customerId},zsales_orgnization='${context.salesOrganizationId}')/_create_customer",
+			"path": "sap/opu/odata4/sap/zsb_wf_customer_v4/srvd_a2x/sap/zsd_wf_customer/0001/customer(customer=${context.customerId})/_create_customer",
 			"httpMethod": "GET",
 			"id": "servicetask2",
 			"name": "updateCustomer"
