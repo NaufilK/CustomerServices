@@ -649,7 +649,41 @@ sap.ui.define(
           });
           oComponent.setModel(oViewModel, "appView");
           oComponent.getModel("appView").updateBindings(true);
+        },
+        
+        //To display sales area, changes made by Mujaida,
+        handleGenerateSales:function () {
+          if(oComponent.getModel("appView").getProperty("/generateSale") === false){
+          if(oComponent.getModel("salesDataModel").getData().length > 0){
+              for(var i=0; i<oComponent.getModel("salesDataModel").getData().length; i++){
+              var count = i;
+              var container =  oComponent.byId("container");
+              var salesPanel = new sap.ui.xmlfragment("frag"+count, "customerReview.customerServiceUI.fragments.salesPanel", this);
+              oComponent.addDependent(salesPanel);
+              container.addItem(salesPanel);
+              var salesOrg = oComponent.getModel("salesDataModel").getData()[i].zsales_orgnization;
+              var distribution = oComponent.getModel("salesDataModel").getData()[i].zdistribution_channel;
+              var division = oComponent.getModel("salesDataModel").getData()[i].zdivision;
+              var headerText = salesPanel.getItems()[i].getHeaderToolbar().getContent()[0].getText();
+              salesPanel.getItems()[i].getHeaderToolbar().getContent()[0].setText(headerText + " (" +salesOrg+ " - "+distribution+ " - "+ division+ ") ");
+              var simpleForm = salesPanel.getItems()[0].getContent()[0].getItems()[0];
+              oComponent.getModel("appView").setProperty("/generateSale", true);
+
+            simpleForm.bindElement({
+              path: "/"+count,
+              model: "salesDataModel"
+            })
+            oComponent.getModel("salesDataModel").updateBindings(true);
+            }
+            }else{
+          MessageBox.information("There is no sales area to display");
+          }
+        }else{
+              MessageBox.information("Sales area is already displayed");
         }
+
+          
+      }
       }
     );
   }

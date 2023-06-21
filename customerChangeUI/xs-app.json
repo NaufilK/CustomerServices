@@ -3,17 +3,31 @@
   "authenticationMethod": "route",
   "routes": [
     {
+      "source": "/sap/opu/odata/sap/API_CV_ATTACHMENT_SRV/(.*)$",
+      "target": "/sap/opu/odata/sap/API_CV_ATTACHMENT_SRV/$1",
+      "destination": "S4D",
+      "authenticationType": "none",
+      "csrfProtection": false
+    },
+    {
       "source": "^/bpmworkflowruntime/(.*)$",
       "target": "/public/workflow/rest/$1",
-      "service": "com.sap.spa.processautomation",
-      "endpoint": "api",
-      "authenticationType": "xsuaa"
+      "destination": "process_automation_api",
+      "authenticationType": "xsuaa",
+      "csrfProtection": false
+    },
+    {
+      "source": "/sap/opu/odata/sap/ZIFFCO_VALUEHELP_SRV/(.*)$",
+      "target": "/sap/opu/odata/sap/ZIFFCO_VALUEHELP_SRV/$1",
+      "destination": "S4D",
+      "authenticationType": "none",
+      "csrfProtection": false
     },
     {
       "source": "^/sap/(.*)$",
       "target": "/sap/$1",
-      "destination": "None",
-      "authenticationType": "xsuaa",
+      "destination": "ABAP_COMMUNICATION_SYSTEM",
+      "authenticationType": "none",
       "csrfProtection": false
     },
     {

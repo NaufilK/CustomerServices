@@ -277,7 +277,7 @@
 			"priority": "MEDIUM",
 			"isHiddenInLogForParticipant": false,
 			"supportsForward": false,
-			"userInterface": "sapui5://customerService.customerReviewcustomerServiceUI/customerReview.customerServiceUI",
+			"userInterface": "sapui5://customerService.customerChangeUI/customerChangeUI",
 			"recipientUsers": "${context.currentApprover}",
 			"userInterfaceParams": [],
 			"id": "approveRequest",
@@ -944,7 +944,7 @@
 		},
 		"e180f230-6541-4e00-b9ed-bdb476844bdf": {
 			"classDefinition": "com.sap.bpm.wfs.ui.SequenceFlowSymbol",
-			"points": "615.8528779680299,266.87621229018794 615.8529052734375,406 285.5,406 285.4999988079071,355.5",
+			"points": "615.1985142246265,266.9867434640543 615.198486328125,406 285.5,406 285.4999988079071,355.5",
 			"sourceSymbol": "f61288bd-2f71-4273-940b-9241f2e0e0a5",
 			"targetSymbol": "5c1ecc18-71ab-4bc8-9156-02c77dbf8ae0",
 			"object": "cd504a59-1c17-4dcc-a01e-f36665a2c3bd"
@@ -1019,8 +1019,8 @@
 		},
 		"f61288bd-2f71-4273-940b-9241f2e0e0a5": {
 			"classDefinition": "com.sap.bpm.wfs.ui.BoundaryEventSymbol",
-			"x": 599.8528779680299,
-			"y": 234.8762122901879,
+			"x": 599.1985142246265,
+			"y": 234.9867434640543,
 			"object": "ad125241-3fcf-4475-baaa-ff33cfb8e722"
 		},
 		"62d7f4ed-4063-4c44-af8b-39050bd44926": {

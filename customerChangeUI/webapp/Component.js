@@ -95,12 +95,12 @@ sap.ui.define(
       },
 
       setCustomerData: function (oContext) {
+        debugger;
         oComponent.businessPartnerId = oContext.customerId;
 
         var serviceURL =
           oComponent.getModel("S4D111").sServiceUrl;
         var oModel = new sap.ui.model.odata.ODataModel(serviceURL, true);
-        oComponent.busyDialog.open();
 
         oComponent.setModel(
           new sap.ui.model.json.JSONModel([]),
@@ -130,7 +130,6 @@ sap.ui.define(
         oComponent.evtProcess = "CHANGE";
 
         oComponent.extendExistingCustomerSet();
-        oComponent.busyDialog.close();
         oComponent.handleRuleEngineConfiguration();
         oComponent
           .getModel("appView")
