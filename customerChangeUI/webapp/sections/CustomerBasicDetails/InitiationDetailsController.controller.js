@@ -19,7 +19,6 @@ sap.ui.define([
         // },
 		onAfterRendering: function(oEvent){
             var that = this;
-            that.handleVerticalModel();
             if (!this.businessUnit) {
                 this.businessUnit = new sap.ui.xmlfragment("customerChangeUI.fragments.BusinessUnit", this);
                 this.getView().addDependent(this.businessUnit);
@@ -27,7 +26,6 @@ sap.ui.define([
             if (!this.vertical) {
                 this.vertical = new sap.ui.xmlfragment("customerChangeUI.fragments.Vertical", this);
                 this.getView().addDependent(this.vertical);
-                this.vertical.setModel(this.getOwnerComponent().getModel("VerticalModel"));
             }
         },
 
@@ -83,10 +81,29 @@ sap.ui.define([
 
 		//Value Help for vertical
 		handleValueHelpForVertical:function (evt) {
+			var that = this;
 			if(this.businessUntVal){
-				this.verticalField = evt.getSource();
-				this.vertical.getBinding("items").filter([new sap.ui.model.Filter("Businessunit", "EQ", this.businessUntVal)]);
-				this.vertical.open();
+				that.verticalField = evt.getSource();
+
+				//Creating a model for the get service of Vertical field to remove duplicate records.
+				var oModel = that.getOwnerComponent().getModel();
+				oModel.read("/ZDD_BU_VER_VH", {
+					success: function (oData, oResponse) {
+						var aCombinedData = [];
+						var aUniqueCustomers = [];
+						oData.results.forEach(function (obj) {
+							if (!aUniqueCustomers.includes(obj.vertical)){
+								aUniqueCustomers.push(obj.vertical);
+								aCombinedData.push(obj);
+							}
+						});
+						that.getOwnerComponent().setModel(new sap.ui.model.json.JSONModel(aCombinedData), "VerticalModel");
+						that.getOwnerComponent().getModel("VerticalModel").updateBindings(true);
+						that.vertical.getBinding("items").filter([new sap.ui.model.Filter("Businessunit", "EQ", this.businessUntVal)]);
+					}.bind(this),
+					error: function (oError) { }
+				});
+				that.vertical.open();
 			}else{
 				MessageBox.error("Please select Business Unit Field");
 			}
