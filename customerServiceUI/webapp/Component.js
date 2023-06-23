@@ -568,9 +568,40 @@ sap.ui.define(
 
         completeTask: function (decision) {
           //oComponent.getModel("context").setProperty("/approved", approvalStatus);
-          oComponent._patchTaskInstance(decision);
-          oComponent._refreshTaskList();
+          if (decision === "reject") {
+            oComponent.rejectRequest(decision);
+          } else {
+            oComponent._patchTaskInstance(decision);
+            oComponent._refreshTaskList();
+          }
+  
         },
+  
+        rejectRequest: function (decision) {
+          var oModel = oComponent.getModel();
+          var sPath = "/ZDD_CUSTOMER(zcustomer_num=guid'" + oComponent.zcustomer_num + "')";
+          var oCustomerDetailModel = oComponent.getModel("Customers");
+          delete oCustomerDetailModel.getData().to_zdd_sale;
+          delete oCustomerDetailModel.getData().to_zdd_comments;
+          var oEntry = oCustomerDetailModel.getData();
+          oEntry.zrequest_status = "Rejected";
+          delete oEntry.to_comments;
+          delete oEntry.to_salesarea;
+          delete oEntry.to_credit;
+          delete oEntry.ztype_of_Entity;
+  
+          oModel.update(sPath, oEntry, {
+            success: function (oData) {
+              oComponent._patchTaskInstance(decision);
+              console.log('Rejected!');
+              oComponent._refreshTaskList();
+            },
+            error: function (oError) {
+              console.log(oError);
+            }
+          });
+        },
+  
 
         _patchTaskInstance: function (decision) {
           var data = {
