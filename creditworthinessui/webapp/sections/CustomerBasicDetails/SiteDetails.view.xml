@@ -1,0 +1,28 @@
+<mvc:View controllerName="customerReview.creditworthinessui.sections.CustomerBasicDetails.SiteDetailsController" xmlns:mvc="sap.ui.core.mvc" xmlns:forms="sap.ui.layout.form" xmlns="sap.m" >
+	<forms:SimpleForm editable="false" layout="ColumnLayout">
+		<!-- <Label text="Legal Entity" visible="{=${fieldMappingModels>/LegalEntityVisible} === true ? true : false}"
+ required="{=${fieldMappingModels>/LegalEntityMandatory} === true ? true : false}"/>
+		<Input value="{Customers>/zlegal_entity}" enabled="{=${Customers>/zrequest_status} !== 'In Progress' ? true : false}" maxLength="2" visible="{=${fieldMappingModels>/LegalEntityVisible} === true ? true : false}"/> -->
+		
+		<Label text="Legal Name" visible="{=${fieldMappingModels>/LegalNameVisible} === true ? true : false}"
+ required="{=${fieldMappingModels>/LegalNameMandatory} === true ? true : false}"/>
+ <Input value="{Customers>/zcustomer_legal_name}" change="handleDuplicateCheckForName" enabled="{=${Customers>/zrequest_status} !== 'In Progress' ? true : false}" maxLength="50" visible="{=${fieldMappingModels>/LegalNameVisible} === true ? true : false}"/>
+        <!-- <MultiInput showClearIcon="true" value="{Customers>/zcustomer_legal_name}" enabled="{=${Customers>/zrequest_status} !== 'In Progress' ? true : false}" valueHelpRequest="handleValueHelpForLegalName"
+		valueHelpOnly="true" visible="{=${fieldMappingModels>/LegalNameVisible} === true ? true : false}"/> -->
+		
+		<Label text="Year of Establisment" visible="{=${fieldMappingModels>/YearofEstablishmentVisible} === true ? true : false}"
+ required="{=${fieldMappingModels>/YearofEstablishmentMandatory} === true ? true : false}"/>
+        <Input enabled="{=${Customers>/zrequest_status} !== 'In Progress' ? true : false}" value="{Customers>/zyear_of_establishment}" liveChange="handleSetMaxLength" type="Number" maxLength="4" visible="{=${fieldMappingModels>/YearofEstablishmentVisible} === true ? true : false}"/>
+
+         <Label text="Type of Entity" visible="{=${fieldMappingModels>/TypeofEntityVisible} === true ? true : false}"
+ required="{=${fieldMappingModels>/TypeofEntityMandatory} === true ? true : true}"/>
+		<MultiInput showClearIcon="true" id="entityId" enabled="{=${Customers>/zrequest_status} !== 'In Progress' ? true : false}" value="{Customers>/ztype_of_entity}" valueHelpRequest="handleValueHelpForEntityType"
+		valueHelpOnly="true" visible="{=${fieldMappingModels>/TypeofEntityVisible} === true ? true : false}" change="onEntityConfirm"/>
+
+		<Label text="Customer Internal Rating" visible="{=${fieldMappingModels>/CustomerInternalRatingVisible} === true ? true : false}"
+ required="{=${fieldMappingModels>/CustomerInternalRatingMandatory} === true ? true : false}" />
+          <MultiInput showClearIcon="true" enabled="{=${Customers>/zrequest_status} !== 'In Progress' ? true : false}" value="{Customers>/zclass}" valueHelpRequest="handleValueHelpForCustomerInternalRating"
+		valueHelpOnly="true" visible="{=${fieldMappingModels>/CustomerInternalRatingVisible} === true ? true : false}" />
+
+	</forms:SimpleForm>
+</mvc:View>

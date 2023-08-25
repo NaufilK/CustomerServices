@@ -1,0 +1,23 @@
+<mvc:View controllerName="customerReview.creditworthinessui.sections.CustomerBasicDetails.InitiationDetailsController" xmlns:mvc="sap.ui.core.mvc" xmlns:forms="sap.ui.layout.form" xmlns="sap.m">
+    <forms:SimpleForm editable="false" layout="ColumnLayout">
+        <Label text="Request ID" visible="{=${Customers>/zrequest_no} ? true : false}"/>
+        <Input value="{Customers>/zrequest_no}" enabled="false" visible="{=${Customers>/zrequest_no} ? true : false}" />
+
+        <Label text="Initiator Name" visible="{=${Customers>/zrequest_no} ? true : false}"/>
+        <Input value="{Customers>/zupdated_by}" enabled="false" visible="{=${Customers>/zrequest_no} ? true : false}" />
+
+        <Label text="Request Type" />
+        <Input value = "{= ${Customers>/zrequest_type} ? ${Customers>/zrequest_type} : 'Create Customer'}" enabled="false" maxLength="20"/>
+  
+        <Label text="Business Unit" visible="{=${fieldMappingModels>/BusinessUnitVisible} === true ? true : false}"
+        required="{=${fieldMappingModels>/BusinessUnitMandatory} === true ? true : false}"/>
+        <MultiInput id="businessUnitId" showClearIcon="true" value="{Customers>/zbusiness_unit_name}" valueHelpRequest="handleValueHelpForBusinessUnit"
+		valueHelpOnly="true" enabled="{=${Customers>/zrequest_no} ? false : true}" visible="{=${fieldMappingModels>/BusinessUnitVisible} === true ? true : false}"/>
+
+        <Label text="Vertical" visible="{=${fieldMappingModels>/VerticalVisible} === true ? true : false}"
+        required="{=${fieldMappingModels>/VerticalMandatory} === true ? true : false}"/>
+        <MultiInput id="verticalId" showClearIcon="true" value="{Customers>/zvertical}" valueHelpRequest="handleValueHelpForVertical"
+		valueHelpOnly="true" enabled="{=${Customers>/zrequest_no} ? false : true}" visible="{=${fieldMappingModels>/VerticalVisible} === true ? true : false}"/>
+
+    </forms:SimpleForm>
+</mvc:View>

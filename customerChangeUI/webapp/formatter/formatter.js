@@ -76,8 +76,15 @@ sap.ui.define([], function () {
             var amt = amt ? parseInt(amt) : 0 ;
          var proposedAmt = proposedAmt ? parseInt(proposedAmt) : 0;
           var sumOfSecUnsecAmt = amt - proposedAmt;
-          return Math.abs(sumOfSecUnsecAmt).toString();
+          var positiveAmt =  Math.abs(sumOfSecUnsecAmt);
+          return positiveAmt.toLocaleString('en-US', { style: 'currency', currency: 'USD' }).replace('$', '')
         },
+        // getVarienceAmt:function(amt, proposedAmt){
+        //     var amt = amt ? parseInt(amt) : 0 ;
+        //  var proposedAmt = proposedAmt ? parseInt(proposedAmt) : 0;
+        //   var sumOfSecUnsecAmt = amt - proposedAmt;
+        //   return Math.abs(sumOfSecUnsecAmt).toString();
+        // },
         getTotalUnsecuredAmount:function (amt1, amt2, amt3, amt4, amt5, amt6) {
             if(this.getView().getModel("appView").getProperty("/selectedType") === 1 || this.getView().getModel("appView").getProperty("/selectedType") === 2){
                 var totalUnsecuredCredit = 0;

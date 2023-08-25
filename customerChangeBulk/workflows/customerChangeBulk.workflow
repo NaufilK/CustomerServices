@@ -208,7 +208,7 @@
 			"classDefinition": "com.sap.bpm.wfs.ServiceTask",
 			"destination": "ABAP_COMMUNICATION_SYSTEM",
 			"destinationSource": "consumer",
-			"path": "/sap/opu/odata4/sap/zsb_wf_bulk_v4/srvd_a2x/sap/zsd_wf_bulk/0001/bulk(${context.bulkDocumentId})/_approvers",
+			"path": "/sap/opu/odata4/sap/zsb_wf_bulk_v4/srvd_a2x/sap/zsd_wf_bulk/0001/bulk(565dc27e-4b5c-1ede-8cbb-df3e6138ad4b)/_Approvers_Split",
 			"httpMethod": "GET",
 			"responseVariable": "${context.approvers}",
 			"id": "servicetask1",
@@ -843,7 +843,7 @@
 			"classDefinition": "com.sap.bpm.wfs.MailDefinition",
 			"name": "maildefinition2",
 			"to": "${context.submittedByUserId}",
-			"cc": "${context.createdByUserId}",
+			"cc": "",
 			"subject": "Change of a new customer (${context.customerName}) has been approved",
 			"reference": "/webcontent/requestorNotificationApproved.html",
 			"id": "maildefinition2"

@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Requestor Notification E-Mail (Approved)</title>
+    <style>
+        h3 {
+            font-family: serif;
+        }
+
+        p,
+        dl,
+        dd,
+        dt {
+            font-family: sans-serif;
+        }
+
+        dt {
+            text-indent: 5em;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>
+        Creation of a new customer (${context.customerName}) has been approved
+    </h3>
+    <p>
+        Dear ${context.submittedByName},
+        Dear ${context.createdByName},
+    </p>
+    <p>Creation of a new customer (${context.customerName}) has been approved</p>
+    <p>Sincerely yours,</p>
+    <p>SAP Process Automation Notification Service</p>
+</body>
+
+</html>

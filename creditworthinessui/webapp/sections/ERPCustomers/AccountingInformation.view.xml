@@ -1,0 +1,11 @@
+<mvc:View controllerName="customerReview.creditworthinessui.sections.ERPCustomers.APTController" xmlns:mvc="sap.ui.core.mvc" xmlns:forms="sap.ui.layout.form" xmlns="sap.m" >
+	<forms:SimpleForm editable="false" layout="ColumnLayout">
+		<Label text="Company Code" visible="{=${fieldMappingModels>/CompanyCodeVisible} === true ? true : false}"
+		 required="{=${fieldMappingModels>/CompanyCodeMandatory} === true ? true : false}" />
+		<!--    <Input visible="{=${fieldMappingModels>/CompanyCodeVisible} === true ? true : false}" enabled="{=${Customers>/zrequest_no} ? false : true}" maxLength="4" value="{Customers>/zcompany_code}"/> -->
+		<MultiInput showClearIcon="true" enabled="{=${Customers>/zrequest_status} === 'In Progress' || ${Customers>/zrequest_status} === 'In Draft' ? false : true}" valueHelpRequest="handleValueHelpForCompCode" value="{Customers>/zcompany_code}"
+		valueHelpOnly="true" visible="{=${fieldMappingModels>/CompanyCodeVisible} === true ? true : false}"/>
+		
+		
+	</forms:SimpleForm>
+</mvc:View>

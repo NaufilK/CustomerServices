@@ -68,8 +68,8 @@ sap.ui.define(
           var startupParameters = oComponent.getComponentData().startupParameters;
           var taskModel = startupParameters.taskModel;
           var taskData = taskModel.getData();
-          taskData.CreatedOn = taskData.CreatedOn.toDateString();
-          taskData.CompletionDeadLine = taskData.CompletionDeadLine.toDateString();
+          taskData.CreatedOn = taskData.CreatedOn?.toDateString();
+          taskData.CompletionDeadLine = taskData.CompletionDeadLine?.toDateString();
           if (taskData.Priority === "HIGH") {
             taskData.PriorityState = "Warning";
           } else if (taskData.Priority === "VERY HIGH") {
@@ -186,7 +186,7 @@ sap.ui.define(
                   "zsales_office": oData.to_salesarea.results[i].zsales_office,
                   "zsales_group": oData.to_salesarea.results[i].zsales_group,
                   "zabc_class": oData.to_salesarea.results[i].zabc_class,
-                  "zcurrency": oData.to_salesarea.results[i].zcurrency,
+                  "zsales_currency": oData.to_salesarea.results[i].zsales_currency,
                   "zaccount_at_customer": oData.to_salesarea.results[i].zaccount_at_customer,
                   "zswitch_off_rounding": oData.to_salesarea.results[i].zswitch_off_rounding,
                   "zorderprobability": oData.to_salesarea.results[i].zorderprobability,
@@ -654,11 +654,11 @@ sap.ui.define(
             newCustId: "",
             custType: "Credit",
             customerType: 0,
-            mode: "",
+            mode: "add",
             selectedMode: false,
             distributionChannel: "",
             cca: "",
-            bpg: "Sold To",
+            bpg: "SOLD TO",
             process: "",
             salesFlag: false,
             blockedCmValue: "",
@@ -667,6 +667,8 @@ sap.ui.define(
             firstTym: "",
             vertical: "Credit",
             generateSale: false,
+            salesFlag:false,
+            addSales: false,
             TypeOfEntity1: "",
             TypeOfEntity2: "",
             TypeOfEntity3: "",

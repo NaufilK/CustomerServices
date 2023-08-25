@@ -12,7 +12,7 @@ modules:
       service-key:
         config:
           deployUsageScenario: workflow
-        name: spa-workflow-service-key
+        name: sap-workflow-service-key
 - name: customerChange
   type: com.sap.application.content
   path: customerChange
@@ -23,7 +23,7 @@ modules:
       service-key:
         config:
           deployUsageScenario: workflow
-        name: spa-workflow-service-key
+        name: sap-workflow-service-key
 - name: customerChangeBulk
   type: com.sap.application.content
   path: customerChangeBulk
@@ -34,7 +34,7 @@ modules:
       service-key:
         config:
           deployUsageScenario: workflow
-        name: spa-workflow-service-key
+        name: sap-workflow-service-key
 - name: IFFCOCustomerServices-destination-content
   type: com.sap.application.content
   requires:
@@ -87,6 +87,10 @@ modules:
       - customerBulkUploadUI.zip
       name: customerBulkUploadUI
       target-path: resources/
+    - artifacts:
+      - customerReviewcreditworthinessui.zip
+      name: customerReviewcreditworthinessui
+      target-path: resources/
 - name: customerReviewcustomerServiceUI
   type: html5
   path: customerServiceUI
@@ -117,6 +121,60 @@ modules:
     - npm install
     - npm run build:cf
     supported-platforms: []
+- name: dataSteward
+  type: com.sap.application.content
+  path: dataSteward
+  requires:
+  - name: sap_processautomation
+    parameters:
+      content-target: true
+      service-key:
+        config:
+          deployUsageScenario: workflow
+        name: spa-workflow-service-key
+- name: creditWorthinessCheck
+  type: com.sap.application.content
+  path: creditWorthinessCheck
+  requires:
+  - name: sap_processautomation
+    parameters:
+      content-target: true
+      service-key:
+        config:
+          deployUsageScenario: workflow
+        name: spa-workflow-service-key
+- name: customerReviewcreditworthinessui
+  type: html5
+  path: creditworthiness
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: annualAppraisal
+  type: com.sap.application.content
+  path: annualAppraisal
+  requires:
+  - name: sap_processautomation
+    parameters:
+      content-target: true
+      service-key:
+        config:
+          deployUsageScenario: workflow
+        name: spa-workflow-service-key
+- name: dataStewardChange
+  type: com.sap.application.content
+  path: dataStewardChange
+  requires:
+  - name: sap_processautomation
+    parameters:
+      content-target: true
+      service-key:
+        config:
+          deployUsageScenario: workflow
+        name: spa-workflow-service-key
 resources:
 - name: sap_processautomation
   type: org.cloudfoundry.managed-service
@@ -129,7 +187,7 @@ resources:
     config:
       HTML5Runtime_enabled: true
       init_data:
-        subaccount:
+        instance:
           destinations:
           - Authentication: NoAuthentication
             Name: ui5

@@ -1,0 +1,19 @@
+{
+    "customerId": "ca279c57-80a8-1eed-a7af-ef06ec18700c",
+    "customerName": "IFFCO Bakery",
+    "customerSiteName": "IFFCO",
+    "customerCountry": "United Arab Emirates",
+    "businessUnit": "Iffco Egypt S.A.E",
+    "createdByUserId": "t_nithinsj@iffco.com",
+    "createdByName": "John Smith",
+    "createdByRole": "Sales Person",
+    "createdOn": "01.02.2023",
+    "submittedByUserId" : "t_reshmam@iffco.com",
+    "submittedByName": "John Smith",
+    "submittedByRole": "Sales Person",
+    "submittedOn": "01.02.2023",
+    "linkToTask": "https://<spaceId>.sap-process-automation.cfapps.eu10.hana.ondemand.com/comsapspaprocessautomation.comsapspainbox/inbox.html#/detail/NA/<taskID>/TaskCollection(SAP__Origin='NA',InstanceID='<taskID>')",
+    "testMode": true,
+    "requestId": "40f308ac-a48f-433c-bf17-576f7821441a",
+    "channel": "Channel 1"
+  }

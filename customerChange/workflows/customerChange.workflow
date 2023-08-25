@@ -266,7 +266,7 @@
 			"classDefinition": "com.sap.bpm.wfs.ServiceTask",
 			"destination": "ABAP_COMMUNICATION_SYSTEM",
 			"destinationSource": "consumer",
-			"path": "sap/opu/odata4/sap/zsb_wf_customer_v4/srvd_a2x/sap/zsd_wf_customer/0001/customer(customer=${context.customerId})/_create_customer",
+			"path": "/sap/opu/odata4/sap/zsb_wf_customer_v4/srvd_a2x/sap/zsd_wf_customer/0001/credit_update(${context.customerId})",
 			"httpMethod": "GET",
 			"id": "servicetask2",
 			"name": "updateCustomer"
@@ -807,27 +807,27 @@
 		},
 		"cb609d78-1669-4507-a61f-9e262ea7e9e6": {
 			"classDefinition": "com.sap.bpm.wfs.ui.ParallelGatewaySymbol",
-			"x": 630.5,
-			"y": 221,
+			"x": 670.5,
+			"y": 161,
 			"object": "a80ce3ed-4c27-4bed-9c8d-f62e2a568289"
 		},
 		"efb8901a-cc55-4ecf-a281-c7678fc1ff09": {
 			"classDefinition": "com.sap.bpm.wfs.ui.SequenceFlowSymbol",
-			"points": "568,140 568,195.75 651.5,195.75 651.5,242",
+			"points": "568,140 644.5,140 644.5,182 691.5,182",
 			"sourceSymbol": "3b2874c1-a287-4869-8fa5-fc4fab818847",
 			"targetSymbol": "cb609d78-1669-4507-a61f-9e262ea7e9e6",
 			"object": "e459a5ed-0064-45a9-8e20-a58a4074d08f"
 		},
 		"df4adeea-7ef1-4cc9-b64c-b0757e29dce1": {
 			"classDefinition": "com.sap.bpm.wfs.ui.SequenceFlowSymbol",
-			"points": "567.9999988079071,221 624.5,221 624.5,242.5 633.5,242.5",
+			"points": "567.9999988079071,221 644.5,221 644.5,182.5 673.5,182.5",
 			"sourceSymbol": "eaa00137-f797-40ca-91c1-0c3d9c9cd98c",
 			"targetSymbol": "cb609d78-1669-4507-a61f-9e262ea7e9e6",
 			"object": "618e31da-7139-4906-b3e7-2b7c5e5b91e8"
 		},
 		"40529b22-b17b-42e7-a5e8-2843856dd895": {
 			"classDefinition": "com.sap.bpm.wfs.ui.SequenceFlowSymbol",
-			"points": "651.5,242 782,242 782,182 891.9999988079071,182",
+			"points": "691.5,182 891.9999988079071,182",
 			"sourceSymbol": "cb609d78-1669-4507-a61f-9e262ea7e9e6",
 			"targetSymbol": "9de857dc-3b9f-4745-8212-38c9f6fc168a",
 			"object": "d66e8b11-d74d-4665-84b3-4f999a957f64"
@@ -1057,7 +1057,7 @@
 			"classDefinition": "com.sap.bpm.wfs.MailDefinition",
 			"name": "maildefinition2",
 			"to": "${context.submittedByUserId}",
-			"cc": "${context.createdByUserId}",
+			"cc": "",
 			"subject": "Change of a new customer (${context.customerName}) has been approved",
 			"reference": "/webcontent/requestorNotificationApproved.html",
 			"id": "maildefinition2"

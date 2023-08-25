@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Approver Notification E-Mail</title>
+    <style>
+        h3 {
+            font-family: serif;
+        }
+
+        p,
+        dl,
+        dd,
+        dt {
+            font-family: sans-serif;
+        }
+
+        dt {
+            text-indent: 5em;
+        }
+    </style>
+</head>
+
+<body>
+    <p>
+        Dear ${context.currentApproverName},
+    </p>
+    <p>${context.notificationText}</p>
+    <p><a href="${context.linkToTask}">Click here to view</a></p>
+    <p/>
+    <p>Customer Legal Name: ${context.customerName}</p>
+    <p>Customer Site Name: ${context.customerSiteName}</p>
+    <p>Country: ${context.customerCountry}</p>
+    <p>Business Unit: ${context.businessUnit}</p>
+    <p/>
+    <p>Regards,</p>
+    <p>CLAP Support</p>
+</body>
+
+</html>

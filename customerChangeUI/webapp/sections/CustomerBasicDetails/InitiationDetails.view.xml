@@ -31,7 +31,7 @@
         <Input enabled="{=${appView>/process} === 'EXTEND' || ${appView>/status} === 'In Progress' ? false : true}" value="{Customers>/zreason}" visible="{=${fieldMappingModels>/ReasonVisible} === true ? true : false}"/>
         <Label text="Status" visible="{=${fieldMappingModels>/StatusVisible} === true ? true : false}"
  required="{=${fieldMappingModels>/StatusMandatory} === true ? true : false}"/>
-        <Input enabled="{=${appView>/process} === 'EXTEND' || ${appView>/status} === 'In Progress' ? false : true}" value="{Customers>/zstatus}" maxLength="10" editable="false" visible="{=${fieldMappingModels>/StatusVisible} === true ? true : false}"/>
+        <Input enabled="{=${appView>/process} === 'EXTEND' || ${appView>/status} === 'In Progress' ? false : true}" value="{Customers>/zrequest_status}" maxLength="10" editable="false" visible="{=${fieldMappingModels>/StatusVisible} === true ? true : false}"/>
 
         <Label text="Created On/By" visible="{=${fieldMappingModels>/CreatedOnVisible} === true ? true : false}"
  required="{=${fieldMappingModels>/CreatedOnMandatory} === true ? true : false}" />

@@ -37,7 +37,7 @@
          id="zproposedBusiProposalAttach"
     name="fileUploader"
     buttonText="Upload File"
-    fileType="pdf"
+    fileType="pdf" enabled="false"
     sendXHR="true" change="onConfirm" />
 		<!-- <Input enabled="{=${appView>/process} === 'EXTEND' || ${appView>/status} === 'In Progress' ? false : true}" value="{Customers>/zproposed_busi_proposal_attach}" maxLength="20" visible="{=${fieldMappingModels>/ProposedBusinessProposalAttachmentsVisible} === true ? true : false}"/> -->
 

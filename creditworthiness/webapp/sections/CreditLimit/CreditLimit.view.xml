@@ -1,0 +1,11 @@
+<mvc:View controllerName="customerReview.creditworthiness.sections.CreditLimit.CreditLimitController" xmlns:mvc="sap.ui.core.mvc" xmlns:forms="sap.ui.layout.form" xmlns="sap.m" >
+	<forms:SimpleForm editable="false" id="cl" layout="ColumnLayout">
+		
+		<Label text="Credit Limit Type" visible="{=${fieldMappingModels>/CreditLimitTypeVisible} === true ? true : false}" required="{=${fieldMappingModels>/CreditLimitTypeMandatory} === true ? true : false}"/>
+		<RadioButtonGroup select="handleCreditLimitTypeSelect" selectedIndex="0">
+			<RadioButton enabled="{=${Customers>/zrequest_status} !== 'In Progress' ? true : false}" selected="{= ${Customers>/zcredit_limit_type} === 'Secured Credit Limit' || ${Customers>/zcredit_limit_type} === 'Secured Credit' ? true : false}" text="Secured Credit Limit" />
+			<RadioButton enabled="{=${Customers>/zrequest_status} !== 'In Progress' ? true : false}" selected="{= ${Customers>/zcredit_limit_type} === 'UnSecured Credit Limit' || ${Customers>/zcredit_limit_type} === 'UnSecured Credit' ? true : false}" text="UnSecured Credit Limit" />
+		    <RadioButton enabled="{=${Customers>/zrequest_status} !== 'In Progress' ? true : false}" selected="{= ${Customers>/zcredit_limit_type} === 'Both'}" text="Both" />
+		</RadioButtonGroup>
+	</forms:SimpleForm>	
+</mvc:View>
